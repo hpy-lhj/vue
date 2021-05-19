@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
-      哒哒哒哒哒
+      再次尝试部署
     </p>
   </div>
 </template>
