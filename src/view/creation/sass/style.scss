@@ -1,0 +1,212 @@
+.creation {
+  .top_introduce {
+    display: flex;
+    padding-left: 240px;
+    .introduce_left {
+      margin-top: 132px;
+      .one_tite {
+        font-size: 60px;
+        font-family: PingFangSC-Semibold;
+        color: #333333;
+        margin-bottom: 61px;
+      }
+      .sologin {
+        font-size: 16px;
+        font-family: PingFangSC-Regular;
+        color: #333333;
+        margin-bottom: 5px;
+      }
+      .soling_fgon {
+        margin-top: 70px;
+      }
+      .soling_fgtw {
+        margin-top: 25px;
+      }
+      .pri_buton {
+        margin-top: 120px;
+        width: 450px;
+        height: 50px;
+        box-shadow: 0px 4px 11px 0px #6e98fe;
+        border-radius: 25px;
+        font-size: 16px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #ffffff;
+        &:hover {
+          background: #6e98fe;
+        }
+      }
+    }
+    .introduce_right {
+      margin: 70px 0 0 276px;
+      .right_img {
+        display: block;
+        width: 909px;
+        height: 801px;
+      }
+    }
+  }
+  //
+  .cooperation {
+    padding: 0 240px;
+    margin-top: 99px;
+    .tite {
+      font-size: 45px;
+      font-family: PingFangSC-Semibold;
+      color: #333333;
+      margin-bottom: 52px;
+    }
+    .cooperation_list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .cooper {
+        width: 32%;
+        height: 323px;
+        position: relative;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        .bot_infor {
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          .infor {
+            padding: 20px;
+            .infor_top {
+              display: flex;
+              align-items: center;
+              margin-bottom: 14px;
+              img {
+                display: block;
+                width: 60px;
+                height: 60px;
+                margin-right: 14px;
+              }
+              span {
+                font-size: 20px;
+                font-family: PingFangSC-Medium;
+                color: #ffffff;
+              }
+            }
+            .infor_txt {
+              font-size: 14px;
+              font-family: PingFangSC-Regular;
+              color: #ffffff;
+            }
+            .infor_bot {
+              margin-top: 14px;
+              p {
+                display: inline-block;
+                font-size:16px;
+                padding: 5px 10px;
+                background: #f0f4ff;
+                border-radius: 19px;
+                margin-right: 10px;
+                .key {
+                  font-size: 14px;
+                  font-family: PingFangSC-Semibold;
+                  color: #3772ff;
+                }
+                .value {
+                  font-size: 14px;
+                  font-family: PingFangSC-Semibold;
+                  color: #333333;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //
+  .join {
+    margin-top: 204px;
+    padding-left: 240px;
+    .tite {
+      font-size: 45px;
+      font-family: PingFangSC-Semibold;
+      color: #333333;
+      margin-bottom: 36px;
+    }
+    .form_tabel {
+      width: 1061px;
+      background: #ffffff;
+      box-shadow: 2px 3px 21px rgba(210, 210, 210, 0.5);
+      border-radius: 8px;
+      position: relative;
+      .right_logo {
+        font-size: 123px;
+        font-family: PingFangSC-Semibold;
+        color: #f0f4ff;
+        opacity: 1;
+        transform:rotate(90deg);
+        display: inline-block;
+        position: absolute;
+        bottom: -30px;
+        right: -500px;
+      }
+      .tori_img {
+        position: absolute;
+        display: block;
+        width: 170px;
+        height: 170px;
+        top: -60px;
+        right: -60px;
+      }
+      .form_cont {
+        padding: 42px 45px;
+        .el-form-item {
+          margin-bottom: 35px;
+          .el-form-item__label {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-family: PingFangSC-Semibold;
+            font-weight: 600;
+            color: #333;
+          }
+          .el-radio-button {
+            margin-right: 15px;
+            .el-radio-button__inner {
+              box-shadow: 2px 3px 21px rgba(210, 210, 210, 0.5);
+              border-radius: 28px;
+              background-color: #f1f4fe;
+              border: 0;
+            }
+          }
+          .is-active {
+            .el-radio-button__inner {
+              box-shadow: 2px 3px 21px rgba(210, 210, 210, 0.5);
+              border-radius: 28px;
+              background-color: #4077f6;
+            }
+          }
+          .el-input__inner {
+            height: 50px;
+            background: #f6f6f6;
+            border-radius: 6px;
+            border: 0;
+          }
+          .el-textarea__inner {
+            background: #f6f6f6;
+            border-radius: 6px;
+            border: 0;
+          }
+        }
+      }
+    }
+    .confirm {
+      width: 147px;
+      height: 40px;
+      background: #3772ff;
+      border-radius: 20px;
+      margin: 80px 0 155px 0;
+    }
+  }
+}

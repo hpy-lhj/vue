@@ -1,0 +1,33 @@
+.min_home {
+  .one_top {
+    padding: 0 367px 0 242px;
+    display: flex;
+    .one_top_left {
+      margin-top: 130px;
+      .tite {
+        font-size: 60px;
+        font-family: PingFangSC-Semibold, PingFang SC;
+        font-weight: 600;
+        color: #333333;
+      }
+      .solgen {
+        font-size: 22px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #333333;
+        margin-top: 44px;
+      }
+      .buton_com {
+        display: inline-block;
+        margin-top: 103px;
+        padding: 11px 40px;
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #ffffff;
+        background: #3772ff;
+        border-radius: 21px;
+      }
+    }
+  }
+}

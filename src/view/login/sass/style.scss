@@ -1,0 +1,128 @@
+.login {
+  display: flex;
+  .login_left {
+    display: block;
+    width: 50%;
+    height: 100%;
+  }
+  .login_right {
+    width: 50%;
+    height: 100%;
+    .docker_login {
+      width: 520px;
+      margin: 170px 0 0 129px;
+      background: #ffffff;
+      box-shadow: 10px 25px 45px 0px #e2eaff;
+      border-radius: 39px;
+      border: 1px solid #ffffff;
+      .login_cont {
+        padding: 60px;
+        .login_top {
+          margin-bottom: 40px;
+          .tite {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-family: PingFangSC-Semibold, PingFang SC;
+            font-weight: 600;
+            color: #333333;
+          }
+          .sologin {
+            font-size: 14px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #777777;
+          }
+        }
+        .login_input {
+          .tite {
+            font-size: 16px;
+            font-family: PingFangSC-Semibold, PingFang SC;
+            font-weight: 600;
+            color: #333333;
+          }
+          .ruleForm {
+            margin-top: 15px;
+            .el-form-item {
+              margin-bottom: 39px;
+              .el-input__inner {
+                height: 50px;
+                background: #f6f6f6;
+                border-radius: 6px;
+                border: 0;
+                font-size: 14px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #777777;
+              }
+            }
+            .verif {
+              position: relative;
+              .buton_h {
+                position: absolute;
+                height: 50px;
+                line-height: 50px;
+                top: 0;
+                right: 15px;
+                font-size: 14px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #333333;
+              }
+            }
+          }
+          .but_login {
+            width: 100%;
+            background: #3772ff;
+            height: 50px;
+            // line-height: 50px;
+            box-shadow: 0px 4px 11px 0px #6e98fe;
+            border-radius: 25px;
+            font-size: 16px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #ffffff;
+            &:hover {
+              background: #6e98fe;
+            }
+          }
+        }
+        //
+        .tripartite {
+          margin-top: 94px;
+          .lin_cont {
+            display: flex;
+            align-items: center;
+            .linner {
+              width: 100%;
+              border-top: 1px solid #e6e6e6;
+            }
+            .text {
+              font-size: 14px;
+              font-family: PingFangSC-Regular, PingFang SC;
+              font-weight: 400;
+              color: #777777;
+              padding: 0 15px;
+              white-space: nowrap;
+            }
+          }
+        }
+        .tripartite_login {
+          margin-top: 43px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .img_txt {
+            display: flex;
+            align-items: center;
+            .login_txt {
+              font-size: 16px;
+              font-family: PingFangSC-Regular, PingFang SC;
+              font-weight: 400;
+              color: #333333;
+            }
+          }
+        }
+      }
+    }
+  }
+}
