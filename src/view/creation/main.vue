@@ -1,5 +1,5 @@
 <template>
-  <Main isActive="4">
+  <Main keys="/creation">
     <template>
       <div class="creation">
         <!-- 头部介绍 -->
@@ -22,7 +22,7 @@
             >
           </div>
           <div class="introduce_right">
-            <img class="right_img" src="../../assets/gopush.png" alt="" />
+            <img class="right_img" src="../../assets/right_ch.png" alt="" />
           </div>
         </div>
         <!-- 合作代表 -->
@@ -44,11 +44,11 @@
                   <div class="infor_bot">
                     <p>
                       <span class="key">14.24</span>
-                      <span class="value">EHT</span>
+                      <span class="value"> EHT</span>
                     </p>
                     <p>
                       <span class="key">1.8k</span>
-                      <span class="value">粉丝</span>
+                      <span class="value"> 粉丝</span>
                     </p>
                   </div>
                 </div>
@@ -88,7 +88,7 @@
                     v-model="ruleForm.mobile"
                   ></el-input>
                 </el-form-item>
-                <el-form-item label="名称" prop="name">
+                <el-form-item label="姓名" prop="name">
                   <el-input
                     placeholder="请输入您的名称"
                     v-model="ruleForm.name"
@@ -103,11 +103,26 @@
                   >
                   </el-input>
                 </el-form-item>
-                <el-form-item label="上传作品" prop="name"> </el-form-item>
+                <el-form-item label="个人网站" prop="itw">
+                  <el-input
+                    placeholder="请输入您的个人网站"
+                    v-model="ruleForm.itw"
+                  ></el-input>
+                </el-form-item>
+                <el-form-item label="上传作品" prop="works">
+                  <div class="works">
+                    <p class="guige">PNG, GIF, WEP, MP4或MP3. 最多30mb</p>
+                    <Upload>
+                      <el-button class="ext_but" size="small" type="primary"
+                        >上传文件</el-button
+                      >
+                    </Upload>
+                  </div>
+                </el-form-item>
               </el-form>
             </div>
           </div>
-           <el-button class="confirm" type="primary" round>提交审核</el-button>
+          <el-button class="confirm" type="primary" round>提交审核</el-button>
         </div>
       </div>
     </template>
@@ -115,6 +130,7 @@
 </template>
 <script>
 import Main from "../../components/Main";
+import Upload from "../../components/Upload";
 import watch from "./src/watch";
 import methods from "./src/methods";
 import computed from "./src/computed";
@@ -133,9 +149,12 @@ export default {
         mobile: "",
         name: "",
         textarea: "",
+        itw: "",
+        works: "",
       },
       rules: {
         radio: [{ required: true, message: "请选择类型", trigger: "change" }],
+        works: [{ required: true, message: "请上传作品", trigger: "change" }],
         emel: [
           {
             required: true,
@@ -184,7 +203,14 @@ export default {
         textarea: [
           {
             required: true,
-            message: "请输入名称",
+            message: "请输入个人介绍",
+            trigger: "blur",
+          },
+        ],
+        itw: [
+          {
+            required: true,
+            message: "请输入个人网站",
             trigger: "blur",
           },
         ],
@@ -196,6 +222,7 @@ export default {
   computed: computed,
   components: {
     Main,
+    Upload
   },
   mounted: async function () {
     console.log("源文件：", "main/pages/buy/buy_card");

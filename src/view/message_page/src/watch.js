@@ -1,0 +1,11 @@
+/*属性值监控
+1、不能用()=>{}  箭头函数定义
+ps: https://cn.vuejs.org/v2/api/#watch
+*/
+export default {
+    shuru_inont(value){
+        if(value){
+            this.shuru_inont_show = false
+        }
+    }
+};

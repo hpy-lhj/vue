@@ -2,7 +2,7 @@
   <div class="login" :style="{ height: min_height }">
     <img
       class="login_left"
-      src="https://t7.baidu.com/it/u=1423490396,3473826719&fm=193&f=GIF"
+      src="../../assets/login_left.png"
       alt=""
     />
     <div class="login_right">

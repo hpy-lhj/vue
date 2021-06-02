@@ -1,20 +1,20 @@
 .creation {
+  background-color: #000;
   .top_introduce {
     display: flex;
-    padding-left: 240px;
+    padding: 100px 0 114px 126px;
     .introduce_left {
-      margin-top: 132px;
+      margin-top: 74px;
       .one_tite {
-        font-size: 60px;
+        font-size: 50px;
         font-family: PingFangSC-Semibold;
-        color: #333333;
-        margin-bottom: 61px;
+        color: #ffffff;
+        margin-bottom: 55px;
       }
       .sologin {
         font-size: 16px;
         font-family: PingFangSC-Regular;
-        color: #333333;
-        margin-bottom: 5px;
+        color: #ffffff;
       }
       .soling_fgon {
         margin-top: 70px;
@@ -23,11 +23,10 @@
         margin-top: 25px;
       }
       .pri_buton {
-        margin-top: 120px;
-        width: 450px;
-        height: 50px;
-        box-shadow: 0px 4px 11px 0px #6e98fe;
-        border-radius: 25px;
+        margin-top: 157px;
+        width: 467px;
+        height: 66px;
+        border-radius: 30px;
         font-size: 16px;
         font-family: PingFangSC-Regular, PingFang SC;
         font-weight: 400;
@@ -38,22 +37,22 @@
       }
     }
     .introduce_right {
-      margin: 70px 0 0 276px;
+      margin: 47px 0 0 163px;
       .right_img {
         display: block;
-        width: 909px;
-        height: 801px;
+        width: 839px;
+        height: 725px;
       }
     }
   }
   //
   .cooperation {
-    padding: 0 240px;
-    margin-top: 99px;
+    padding: 0 57px 0 126px;
+    margin-top: 64px;
     .tite {
       font-size: 45px;
       font-family: PingFangSC-Semibold;
-      color: #333333;
+      color: #ffffff;
       margin-bottom: 52px;
     }
     .cooperation_list {
@@ -101,7 +100,7 @@
               margin-top: 14px;
               p {
                 display: inline-block;
-                font-size:16px;
+                font-size: 16px;
                 padding: 5px 10px;
                 background: #f0f4ff;
                 border-radius: 19px;
@@ -125,30 +124,30 @@
   }
   //
   .join {
-    margin-top: 204px;
-    padding-left: 240px;
+    margin-top: 90px;
+    padding-left: 126px;
     .tite {
       font-size: 45px;
+      font-size: 45px;
       font-family: PingFangSC-Semibold;
-      color: #333333;
+      color: #ffffff;
       margin-bottom: 36px;
     }
     .form_tabel {
       width: 1061px;
-      background: #ffffff;
-      box-shadow: 2px 3px 21px rgba(210, 210, 210, 0.5);
+      background: #1d1d1d;
       border-radius: 8px;
       position: relative;
       .right_logo {
         font-size: 123px;
         font-family: PingFangSC-Semibold;
-        color: #f0f4ff;
+        color: #242424;
         opacity: 1;
-        transform:rotate(90deg);
+        transform: rotate(90deg);
         display: inline-block;
         position: absolute;
-        bottom: -30px;
-        right: -500px;
+        top: 830px;
+        right: -350px;
       }
       .tori_img {
         position: absolute;
@@ -160,41 +159,76 @@
       }
       .form_cont {
         padding: 42px 45px;
+        .works {
+          width: 353px;
+          background: #404040;
+          border-radius: 6px;
+          display: inline-block;
+          .upload{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .ext_but {
+            width: 97px;
+            height: 40px;
+            background: #3772ff;
+            border-radius: 20px;
+            border: none;
+            font-size: 14px;
+            font-family: PingFangSC-Medium;
+            line-height: 20px;
+            color: #ffffff;
+            margin-bottom: 24px;
+          }
+          .guige {
+            font-size: 14px;
+            font-family: PingFangSC-Regular;
+            color: #ffffff;
+            padding: 24px 0 15px 0;
+            text-align: center;
+          }
+        }
         .el-form-item {
           margin-bottom: 35px;
           .el-form-item__label {
             width: 100%;
             text-align: left;
             margin-bottom: 15px;
-            font-size: 20px;
+            font-size: 16px;
             font-family: PingFangSC-Semibold;
-            font-weight: 600;
-            color: #333;
+            color: #fff;
+          }
+          .el-form-item.is-required:not(.is-no-asterisk) > .el-form-item__label:before {
+            content: "*";
+            color: #e95757 !important;
+            margin-right: 0.020833rem;
           }
           .el-radio-button {
             margin-right: 15px;
             .el-radio-button__inner {
-              box-shadow: 2px 3px 21px rgba(210, 210, 210, 0.5);
               border-radius: 28px;
-              background-color: #f1f4fe;
+              background-color: #404040;
+              color: #fff;
               border: 0;
             }
           }
           .is-active {
             .el-radio-button__inner {
-              box-shadow: 2px 3px 21px rgba(210, 210, 210, 0.5);
               border-radius: 28px;
               background-color: #4077f6;
+              color: #fff;
             }
           }
           .el-input__inner {
             height: 50px;
-            background: #f6f6f6;
+            background: #404040;
+            color: #fff;
             border-radius: 6px;
             border: 0;
           }
           .el-textarea__inner {
-            background: #f6f6f6;
+            background: #404040;
             border-radius: 6px;
             border: 0;
           }

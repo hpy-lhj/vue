@@ -1,41 +1,56 @@
 <template>
-  <div class="main">
+  <div class="coll">
     <transition name="el-zoom-in-top">
-      <div class="dialogVisible" v-show="dialogVisible">
-        <div class="Collection">
+      <div
+        :style="{ height: min_height }"
+        class="dialogVisible"
+        :class="{
+          coll_shows: !coll_show,
+        }"
+        v-show="dialogVisible"
+      >
+        <div class="dialogVisible_cont">
+          <div class="Collection"></div>
           <div class="Collection_cont">
-            <p class="tite">我的藏品</p>
-            <div class="my_Collection">
-              <div v-for="item in 4" class="Collection_list">
-                <!-- 藏品图 -->
-                <div class="img_cont">
-                  <img
-                    class="Collection_img"
-                    src="https://t7.baidu.com/it/u=12598879,3650988937&fm=193&f=GIF"
-                    alt=""
-                  />
-                </div>
-                <!-- 信息 -->
-                <div class="coll_infor">
-                  <div class="coll_infor_left">
+            <div class="Collection_cont_for">
+              <p class="tite">我的藏品</p>
+              <Menu :menu_status="menu_status"></Menu>
+              <div class="my_Collection">
+                <!-- 藏品列表 -->
+                <div
+                  class="Collection_list"
+                  :class="{
+                    Collection_list_show: !coll_show,
+                  }"
+                  v-for="item in 21"
+                  :key="item"
+                >
+                  <div class="Collection_list_cont">
+                    <!-- 头像，作者名 -->
+                    <div class="img_value">
+                      <img class="portrait" src="../assets/jon.png" alt="" />
+                      <p class="name">创作者：元元</p>
+                    </div>
+                    <!-- 主图 -->
                     <img
-                      src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3939608619,1895959066&fm=11&gp=0.jpg"
+                      class="picture"
+                      src="../assets/nftzp.png"
                       alt=""
                     />
-                    <div class="key_value">
-                      <p class="top">源计划 (宇宙)</p>
-                      <p class="bot">元元</p>
+                    <!-- 信息 -->
+                    <p class="infor">卡牌合集类型1-元宇宙</p>
+                    <!--  价格，收藏 -->
+                    <div class="Price">
+                      <p class="left">
+                        <span class="key">5.65 ETH</span>
+                        <span class="value">($100,3)</span>
+                      </p>
+                      <div class="right">
+                        <img src="../assets/love_laby.png" alt="" />
+                        <span class="nmber">234</span>
+                      </div>
                     </div>
                   </div>
-                  <div class="coll_infor_right">
-                    <p class="top">9.9 EHT</p>
-                    <p class="bot">345/1000</p>
-                  </div>
-                </div>
-                <!-- 咨询信息 -->
-                <div class="coll_infor_botom">
-                  <span class="left">🔥 本周热门</span>
-                  <span class="right">345</span>
                 </div>
               </div>
             </div>
@@ -46,121 +61,176 @@
   </div>
 </template>
 <script>
+import Menu from "./Menu";
 export default {
   props: {
     dialogVisible: Boolean,
+    coll_show: {
+      type: Boolean,
+      default: true,
+    },
   },
+
   data: function () {
-    return {};
+    let _clientH = document.documentElement.clientHeight;
+    return {
+      min_height: `${_clientH}px`,
+      // active: 0,
+      menu_status: -1,
+      series: "",
+    };
   },
   computed: {},
-  watch: {},
-  methods: {},
-  mounted: async function () {
-    console.log(this.hight_cl);
+  components: {
+    Menu,
   },
+  watch: {
+    dialogVisible(newV, oldV) {
+      var body = document.getElementsByTagName("body")[0];
+      if (newV) {
+        body.style.overflow = "hidden";
+      } else {
+        body.style.overflow = "auto";
+      }
+    },
+  },
+  methods: {
+    moveHandle() {
+      return;
+    },
+  },
+  mounted: async function () {},
 };
 </script>
-<style lang="scss"  scoped>
-.dialogVisible {
-  position: absolute;
-  left: 0;
-  top: 103px;
-  width: 100%;
-  height: 980px;
-  background-color: rgba(0, 0, 0, 0.5);
-  .Collection {
-    background: #ffffff;
-    padding: 35px 240px 70px 240px;
-    .Collection_cont {
-      .tite {
-        font-size: 36px;
-        font-family: PingFangSC-Semibold, PingFang SC;
-        font-weight: 600;
-        color: #333333;
-        margin-bottom: 40px;
+<style lang="scss" >
+.coll {
+  width: calc(100% - 297px);
+  .dialogVisible {
+    position: absolute;
+    left: 0;
+    width: calc(100% - 297px);
+    margin-left: 297px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 80;
+    &.coll_shows {
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+    .dialogVisible_cont {
+      height: calc(100% - 100px);
+      margin-top: 100px;
+      overflow: auto !important;
+      position: relative;
+      .Collection {
+        height: 100%;
+        filter: Alpha(Opacity=30);
+        background-color: rgba(0, 0, 0, 0.4);
       }
-      .my_Collection {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        .Collection_list {
-          width: 22.8%;
-          .img_cont {
-            width: 100%;
-            box-shadow: 1px 2px 11px 0px rgba(185, 185, 185, 0.5);
-            border-radius: 14px;
-            .Collection_img {
-              width: 100%;
-              height: 390px;
-              box-shadow: 1px 2px 11px 0px rgba(185, 185, 185, 0.5);
-              border-radius: 14px;
-            }
+      .Collection_cont {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        z-index: 999;
+        .Collection_cont_for {
+          padding: 55px 35px 55px 65px;
+          .tite {
+            font-size: 50px;
+            font-family: PingFangSC-Semibold;
+            color: #ffffff;
           }
-          .coll_infor {
-            width: 100%;
+          // 筛选 end
+          .my_Collection {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            padding: 24px 0 16px 0;
-            border-bottom: 1px solid #e6e6e6;
-            .coll_infor_left {
-              display: flex;
-              align-content: center;
-              img {
-                display: block;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                margin-right: 12px;
+            .Collection_list {
+              width: 22.8%;
+              background: #1d1d1d;
+              border-radius: 24px;
+              margin-bottom: 45px;
+              &.Collection_list_show{
+                width: 18% !important;
               }
-              .key_value {
-                .top {
+              .Collection_list_cont {
+                padding: 25px 25px 35px 25px;
+                .img_value {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 14px;
+                  .portrait {
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin-right: 14px;
+                  }
+                  .name {
+                    font-size: 16px;
+                    font-family: PingFangSC-Semibold;
+                    color: #ffffff;
+                  }
+                }
+                .picture {
+                  width: 100%;
+                  height: 211px;
+                  display: block;
+                  border-radius: 24px;
+                  margin-bottom: 30px;
+                }
+                .infor {
                   font-size: 20px;
-                  font-family: PingFangSC-Medium, PingFang SC;
-                  font-weight: 500;
-                  color: #333333;
+                  font-family: PingFangSC-Semibold;
+                  color: #ffffff;
+                  margin-bottom: 21px;
                 }
-                .bot {
-                  font-size: 14px;
-                  font-family: PingFangSC-Regular, PingFang SC;
-                  font-weight: 400;
-                  color: #333333;
+                .Price {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  .left {
+                    display: flex;
+                    align-items: center;
+                    .key {
+                      font-size: 16px;
+                      font-family: PingFang SC;
+                      font-weight: 500;
+                      color: #3772ff;
+                      margin-right: 10px;
+                    }
+                    .value {
+                      font-size: 16px;
+                      font-family: PingFang SC;
+                      font-weight: 500;
+                      color: #fff;
+                    }
+                  }
+                  .right {
+                    width: 95px;
+                    height: 36px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #ffffff;
+                    border-radius: 20px;
+                    img {
+                      display: block;
+                      width: 18px;
+                      height: 17px;
+                      margin-right: 7px;
+                    }
+                    .nmber {
+                      font-size: 16px;
+                      font-family: PingFangSC-Regular;
+                      color: #ffffff;
+                    }
+                  }
                 }
               }
-            }
-            .coll_infor_right {
-              text-align: right;
-              .top {
-                font-size: 15px;
-                font-family: PingFangSC-Medium, PingFang SC;
-                font-weight: 500;
-                color: #3772ff;
-              }
-              .bot {
-                font-size: 14px;
-                font-family: PingFangSC-Regular, PingFang SC;
-                font-weight: 400;
-                color: #aaaaaa;
-              }
-            }
-          }
-          .coll_infor_botom {
-            margin-top: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .left {
-              font-size: 14px;
-              font-family: AppleColorEmoji;
-              color: #333333;
-            }
-            .right {
-              font-size: 14px;
-              font-family: PingFangSC-Regular, PingFang SC;
-              font-weight: 400;
-              color: #aaaaaa;
             }
           }
         }

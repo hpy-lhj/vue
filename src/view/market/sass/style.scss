@@ -1,4 +1,103 @@
 .market {
-  height: 800px;
-  // background-color: aqua;
+  .dialogVisible {
+    width: 100%;
+    background-color: #000;
+    overflow: auto;
+    .Collection_cont_for {
+      padding: 155px 35px 55px 65px;
+      .tite {
+        font-size: 50px;
+        font-family: PingFangSC-Semibold;
+        color: #ffffff;
+      }
+      // 筛选 end
+      .my_Collection {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        .Collection_list {
+          width: 23%;
+          background: #1d1d1d;
+          border-radius: 24px;
+          margin-bottom: 45px;
+          .Collection_list_cont {
+            padding: 25px 25px 35px 25px;
+            .img_value {
+              display: flex;
+              align-items: center;
+              margin-bottom: 14px;
+              .portrait {
+                display: block;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                margin-right: 14px;
+              }
+              .name {
+                font-size: 16px;
+                font-family: PingFangSC-Semibold;
+                color: #ffffff;
+              }
+            }
+            .picture {
+              width: 100%;
+              height: 211px;
+              display: block;
+              border-radius: 24px;
+              margin-bottom: 30px;
+            }
+            .infor {
+              font-size: 20px;
+              font-family: PingFangSC-Semibold;
+              color: #ffffff;
+              margin-bottom: 21px;
+            }
+            .Price {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .left {
+                display: flex;
+                align-items: center;
+                .key {
+                  font-size: 16px;
+                  font-family: PingFang SC;
+                  font-weight: 500;
+                  color: #3772ff;
+                  margin-right: 10px;
+                }
+                .value {
+                  font-size: 16px;
+                  font-family: PingFang SC;
+                  font-weight: 500;
+                  color: #fff;
+                }
+              }
+              .right {
+                width: 95px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #ffffff;
+                border-radius: 20px;
+                img {
+                  display: block;
+                  width: 18px;
+                  height: 17px;
+                  margin-right: 7px;
+                }
+                .nmber {
+                  font-size: 16px;
+                  font-family: PingFangSC-Regular;
+                  color: #ffffff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

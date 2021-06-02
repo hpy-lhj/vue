@@ -1,9 +1,9 @@
 <template>
   <div>
     <!-- 消息盒 -->
-    <el-dropdown trigger="click">
+    <el-dropdown class="nover_info" trigger="click">
       <span class="el-dropdown-link">
-        <i style="font-size: 17px; color: #333333" class="el-icon-bell"></i>
+        <i style="font-size: 17px; color: #fff" class="el-icon-bell"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
         <p class="news_tite">
@@ -16,7 +16,7 @@
           @click.native="nav_click(item, index)"
           >{{ item }}</el-dropdown-item
         >
-        <p class="news_bot">查看全部</p>
+        <p @click="$router.push('/message_page')" class="news_bot">查看全部</p>
       </el-dropdown-menu>
     </el-dropdown>
   </div>
@@ -40,7 +40,7 @@ export default {
   watch: {},
   methods: {
     nav_click(item, index) {
-      console.log(item);
+      this.$router.push('/message_page')
     },
   },
   mounted: async function () {},
@@ -48,15 +48,20 @@ export default {
 </script>
 <style lang="scss" scoped>
 .el-dropdown-menu {
-  padding: 0 !important;
+  padding: 0  15px !important;
   top: 80px !important;
 }
 .el-dropdown-menu__item {
   padding: 14px 20px !important;
   position: relative;
+  color: #fff;
   &:hover {
-    background-color: #f0f4ff !important;
-    color: #606266 !important;
+    background: #4b4b4b !important;
+    border-radius: 13px !important;
+    color: #FFF !important;
+  }
+  &:before {
+    background-color: rgba(0, 0, 0, 0) !important;
   }
 }
 .el-dropdown-menu__item:before {
@@ -72,7 +77,6 @@ export default {
 }
 .news_tite {
   padding: 18px 20px;
-  border-bottom: 1px solid #e6e6e6;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -80,13 +84,13 @@ export default {
     font-size: 16px;
     font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
-    color: #333333;
+    color: #fff;
   }
   .news_tite_right {
     font-size: 14px;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
-    color: #c4c4c4;
+    color: #fff;
   }
 }
 .news_bot {
@@ -95,6 +99,6 @@ export default {
   font-size: 14px;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
-  color: #333333;
+  color: #FFF;
 }
 </style>

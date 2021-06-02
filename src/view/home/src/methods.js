@@ -6,4 +6,15 @@
 ps: https://cn.vuejs.org/v2/api/#methods
 */
 export default {
+    uap_clack(index) {
+        if (this.Illustrated_list[index].length_nmber == 6) {
+            this.Illustrated_list[index].length_nmber = 999
+        } else {
+            this.Illustrated_list[index].length_nmber = 6
+        }
+    },
+    close_click() {
+        this.Share_show = false
+    }
+
 }

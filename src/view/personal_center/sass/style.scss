@@ -1,0 +1,309 @@
+.personal_center {
+    background-color: #000;
+    overflow: auto;
+    padding-bottom: 100px;
+    .top_img {
+        width: 100%;
+        height: 350px;
+        background-color: #d8d8d8;
+        position: relative;
+        .ext_bg {
+            position: absolute;
+            right: 558px;
+            bottom: 95px;
+            text-align: center;
+            .key {
+                font-size: 18px;
+                font-family: PingFangSC-Medium;
+                color: #ffffff;
+                margin-bottom: 2px;
+            }
+            .value {
+                font-size: 14px;
+                font-family: PingFangSC-Regular;
+                color: #ffffff;
+                margin-bottom: 15px;
+            }
+            .ext_but {
+                width: 98px;
+                height: 36px;
+                background: #3772ff;
+                border-radius: 19px;
+                color: #fff;
+                margin-bottom: 24px;
+               
+            }
+        }
+    }
+    .pcent_infor {
+        position: relative;
+        z-index: 9;
+        .top_pcent_cont {
+            display: flex;
+            justify-content: center;
+            margin: -120px 0 80px 0;
+            .top_pcent {
+                display: inline-block;
+                margin: 0 auto;
+                text-align: center;
+                .touiopn {
+                    display: block;
+                    width: 144px;
+                    height: 144px;
+                    margin: 0 auto 15px auto;
+                }
+                .name_ext {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 14px;
+                    .name {
+                        font-size: 24px;
+                        font-family: PingFangSC-Medium;
+                        color: #ffffff;
+                    }
+                    .right_img {
+                        display: block;
+                        width: 25px;
+                        height: 25px;
+                        margin-left: 10px;
+                    }
+                }
+                .text_infor {
+                    font-size: 14px;
+                    font-family: PingFangSC-Regular;
+                    color: #ffffff;
+                    margin-bottom: 14px;
+                }
+                .fenxiang_list {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img {
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 30px;
+                        &:last-child {
+                            margin-right: 0px;
+                        }
+                    }
+                }
+                .others {
+                    margin-top: 25px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    button {
+                        width: 77px;
+                        height: 40px;
+                        margin-right: 15px;
+                        color: #fff;
+                        font-size: 14px;
+                        border: none;
+                    }
+                    img {
+                        display: block;
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+        .choice {
+            padding: 0 195px;
+            .top_menu {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .top_menu_left {
+                    display: flex;
+                    align-items: center;
+                    .men_cont {
+                        margin-right: 15px;
+                        position: relative;
+                        padding: 9px 23px;
+                        &.men_cont_active {
+                            background: #3772ff;
+                            border-radius: 20px;
+                        }
+                        .key {
+                            font-size: 16px;
+                            font-family: PingFang SC;
+                            font-weight: 500;
+                            line-height: 22px;
+                            color: #ffffff;
+                            position: relative;
+                            .value {
+                                font-size: 12px;
+                                font-family: PingFang SC;
+                                font-weight: 500;
+                                color: #ffffff;
+                                position: absolute;
+                                transform: scale(0.8);
+                                right: -13px;
+                                top: -8px;
+                            }
+                        }
+                    }
+                }
+            }
+            // 产品列表
+            .my_Collection {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 47px;
+                .Collection_list {
+                    width: 23%;
+                    background: #1d1d1d;
+                    border-radius: 24px;
+                    margin-bottom: 45px;
+                    .Collection_list_cont {
+                        padding: 25px 25px 35px 25px;
+                        .img_value {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 14px;
+                            .portrait {
+                                display: block;
+                                width: 50px;
+                                height: 50px;
+                                border-radius: 50%;
+                                margin-right: 14px;
+                            }
+                            .name {
+                                font-size: 16px;
+                                font-family: PingFangSC-Semibold;
+                                color: #ffffff;
+                            }
+                        }
+                        .picture {
+                            width: 100%;
+                            height: 211px;
+                            display: block;
+                            border-radius: 24px;
+                            margin-bottom: 30px;
+                        }
+                        .infor {
+                            font-size: 20px;
+                            font-family: PingFangSC-Semibold;
+                            color: #ffffff;
+                            margin-bottom: 21px;
+                        }
+                        .Price {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            .left {
+                                display: flex;
+                                align-items: center;
+                                .key {
+                                    font-size: 16px;
+                                    font-family: PingFang SC;
+                                    font-weight: 500;
+                                    color: #3772ff;
+                                    margin-right: 10px;
+                                }
+                                .value {
+                                    font-size: 16px;
+                                    font-family: PingFang SC;
+                                    font-weight: 500;
+                                    color: #fff;
+                                }
+                            }
+                            .right {
+                                width: 95px;
+                                height: 36px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border: 1px solid #ffffff;
+                                border-radius: 20px;
+                                img {
+                                    display: block;
+                                    width: 18px;
+                                    height: 17px;
+                                    margin-right: 7px;
+                                }
+                                .nmber {
+                                    font-size: 16px;
+                                    font-family: PingFangSC-Regular;
+                                    color: #ffffff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // 活动
+            .activity {
+                margin-top: 47px;
+                display: flex;
+                .activity_cont {
+                    width: 1082px;
+                    .activity_list {
+                        background: #1d1d1d;
+                        border-radius: 19px;
+                        padding: 25px;
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 20px;
+                        .img_left {
+                            display: block;
+                            width: 99px;
+                            height: 99px;
+                            border-radius: 10px;
+                            margin-right: 15px;
+                        }
+                        .right {
+                            .tite {
+                                font-size: 24px;
+                                font-family: PingFangSC-Medium;
+                                color: #ffffff;
+                                margin-bottom: 6px;
+                            }
+                            .txt {
+                                font-size: 14px;
+                                font-family: PingFangSC-Regular;
+                                color: #ffffff;
+                                span {
+                                    font-size: 14px;
+                                    font-family: PingFangSC-Regular;
+                                    color: #aaaaaa;
+                                }
+                            }
+                            .time {
+                                font-size: 14px;
+                                font-family: PingFangSC-Regular;
+                                color: #aaaaaa;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+            // 异常页
+            .abnormal {
+                margin-top: 80px;
+                img {
+                    display: block;
+                    margin: 0 auto 23px auto;
+                    width: 260px;
+                    height: 200px;
+                }
+                p {
+                    font-size: 14px;
+                    font-family: PingFangSC-Regular;
+                    line-height: 20px;
+                    color: #ffffff;
+                    text-align: center;
+                    span {
+                        color: #3772ff;
+                    }
+                }
+            }
+        }
+    }
+}

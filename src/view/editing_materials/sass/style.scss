@@ -1,0 +1,247 @@
+.editing_materials {
+   background-color: #000;
+   .edit_cont {
+      padding: 120px 240px 0 240px;
+      display: flex;
+      .edit_cont_left {
+         border-radius: 8px;
+         width: 329px;
+         margin-right: 50px;
+         .edit_list {
+            padding: 22px 0;
+            position: relative;
+            background: #1d1d1d;
+            &:nth-child(1) {
+               border-top-left-radius: 8px;
+               border-top-right-radius: 8px;
+            }
+            &:last-child {
+               border-bottom-left-radius: 8px;
+               border-bottom-right-radius: 8px;
+            }
+            &.active_edit {
+               background-color: #404040;
+            }
+            .active_line {
+               height: 21px;
+               border-left: 4px solid #3772ff;
+               position: absolute;
+               top: 50%;
+               margin-top: -10.5px;
+               left: 0;
+            }
+            .tite {
+               padding-left: 40px;
+               font-size: 16px;
+               font-family: PingFangSC-Semibold;
+               color: #ffffff;
+            }
+         }
+      }
+      .edit_cont_right {
+         width: 100%;
+         .conmit {
+            width: 147px;
+            height: 40px;
+            background: #3772ff;
+            border-radius: 20px;
+            font-size: 14px;
+            font-family: PingFangSC-Medium;
+            color: #ffffff;
+            border: none;
+            margin-top: 66px;
+         }
+         .edit_cont_right_cont {
+            padding: 37px 60px 57px 45px;
+            background: #1d1d1d;
+            border-radius: 8px;
+            // 个人信息编辑
+            .percent_edit {
+               .tou_opin {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 35px;
+                  img {
+                     display: block;
+                     margin-right: 27px;
+                     width: 94px;
+                     height: 94px;
+                  }
+                  .ext_but {
+                     width: 147px;
+                     height: 40px;
+                     background: #3772ff;
+                     border-radius: 20px;
+                     color: #fff;
+                     border: none;
+                  }
+               }
+               // 表单验证
+               .form_input {
+               }
+               // 账户链接
+               .account_lj {
+                  margin-top: 35px;
+                  .tite {
+                     display: flex;
+                     align-items: center;
+                     margin-bottom: 30px;
+                     .key {
+                        font-size: 16px;
+                        font-family: PingFangSC-Semibold;
+                        color: #ffffff;
+                        display: inline-block;
+                        margin-right: 20px;
+                     }
+                     .value {
+                        font-size: 12px;
+                        font-family: PingFangSC-Regular;
+                        color: #aaaaaa;
+                     }
+                  }
+                  .lj_fx {
+                     display: flex;
+                     align-items: center;
+                     .list {
+                        margin-right: 45px;
+                        text-align: center;
+                        img {
+                           display: block;
+                           width: 44px;
+                           height: 44px;
+                           margin: 0 auto 5px auto;
+                        }
+                        p {
+                           font-size: 16px;
+                           font-family: PingFangSC-Semibold;
+                           color: #ffffff;
+                        }
+                     }
+                  }
+               }
+            }
+            // 账户链接编辑
+            .account_cont {
+               .tite {
+                  font-size: 24px;
+                  font-family: PingFangSC-Semibold;
+                  color: #ffffff;
+                  margin-bottom: 30px;
+               }
+               .wallet {
+                  margin-bottom: 70px;
+                  display: flex;
+                  .wallet_list {
+                     width: 222px;
+                     height: 90px;
+                     background: #404040;
+                     border-radius: 17px;
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                     margin-right: 40px;
+                     .value {
+                        font-size: 16px;
+                        font-family: PingFangSC-Regular;
+                        color: #ffffff;
+                     }
+                     .key {
+                        font-size: 22px;
+                        font-family: PingFangSC-Semibold;
+                        color: #ffffff;
+                     }
+                     img {
+                        display: block;
+                        margin-right: 15px;
+                        width: 43px;
+                        height: 43px;
+                     }
+                  }
+               }
+               .card_list {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 20px;
+                  p {
+                     font-size: 16px;
+                     font-family: PingFangSC-Semibold;
+                     color: #ffffff;
+                     margin-right: 17px;
+                  }
+                  span {
+                     font-size: 14px;
+                     font-family: PingFangSC-Regular;
+                     color: #de4646;
+                  }
+               }
+               .accont_but {
+                  width: 82px;
+                  height: 36px;
+                  background: #3772ff;
+                  border-radius: 19px;
+                  font-size: 14px;
+                  font-family: PingFangSC-Regular;
+                  color: #ffffff;
+                  border: none;
+                  margin: 0 97px 0 30px;
+               }
+               .add_to {
+                  font-size: 14px;
+                  font-family: PingFangSC-Regular;
+                  color: #3772ff;
+               }
+            }
+            .el-form-item {
+               margin-bottom: 35px;
+               .el-form-item__label {
+                  width: 100%;
+                  text-align: left;
+                  margin-bottom: 15px;
+                  font-size: 16px;
+                  font-family: PingFangSC-Semibold;
+                  color: #fff;
+               }
+               .el-form-item.is-required:not(.is-no-asterisk) > .el-form-item__label:before {
+                  content: "*";
+                  color: #e95757 !important;
+                  margin-right: 0.020833rem;
+               }
+               .el-radio-button {
+                  margin-right: 15px;
+                  .el-radio-button__inner {
+                     border-radius: 28px;
+                     background-color: #404040;
+                     color: #fff;
+                     border: 0;
+                  }
+               }
+               .is-active {
+                  .el-radio-button__inner {
+                     border-radius: 28px;
+                     background-color: #4077f6;
+                     color: #fff;
+                  }
+               }
+               .el-form-item__content {
+                  display: flex;
+                  align-items: center;
+                  width: 100%;
+               }
+               .el-input__inner {
+                  height: 50px;
+                  background: #404040;
+                  color: #fff;
+                  border-radius: 6px;
+                  border: 0;
+               }
+               .el-textarea__inner {
+                  background: #404040;
+                  border-radius: 6px;
+                  padding-top: 10px;
+                  border: 0;
+               }
+            }
+         }
+      }
+   }
+}

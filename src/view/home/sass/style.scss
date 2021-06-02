@@ -1,33 +1,328 @@
 .min_home {
-  .one_top {
-    padding: 0 367px 0 242px;
-    display: flex;
-    .one_top_left {
-      margin-top: 130px;
-      .tite {
-        font-size: 60px;
-        font-family: PingFangSC-Semibold, PingFang SC;
-        font-weight: 600;
-        color: #333333;
-      }
-      .solgen {
-        font-size: 22px;
-        font-family: PingFangSC-Regular, PingFang SC;
-        font-weight: 400;
-        color: #333333;
-        margin-top: 44px;
-      }
-      .buton_com {
-        display: inline-block;
-        margin-top: 103px;
-        padding: 11px 40px;
-        font-size: 14px;
-        font-family: PingFangSC-Regular, PingFang SC;
-        font-weight: 400;
-        color: #ffffff;
-        background: #3772ff;
-        border-radius: 21px;
-      }
+    background-color: #000;
+    padding-bottom: 200px;
+    .move_top {
+        width: 100%;
+        height: 936px;
+        background-image: url("~@//assets/move_page.png");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        .move_top_cont {
+            padding: 0 108px 0px 85px;
+            height: 100%;
+            .infor_cont {
+                height: 100%;
+                position: relative;
+                .text_top {
+                    padding-top: 163px;
+                    .tite {
+                        font-size: 81px;
+                        font-family: Khmer MN;
+                        font-weight: bold;
+                        color: #ffffff;
+                        margin-bottom: 35px;
+                    }
+                    .soleng {
+                        font-size: 16px;
+                        font-family: PingFangSC-Regular;
+                        color: #ffffff;
+                    }
+                    .soleng_bot {
+                        margin-top: 25px;
+                    }
+                }
+                .bot_infor {
+                    position: absolute;
+                    bottom: 70px;
+                    left: 0;
+                    .inm_infor {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 38px;
+                        .left {
+                            display: block;
+                            width: 62px;
+                            height: 62px;
+                            margin-right: 15px;
+                        }
+                        .right {
+                            .top {
+                                font-size: 14px;
+                                font-family: PingFangSC-Regular;
+                                color: #ffffff;
+                            }
+                            .bot {
+                                font-size: 20px;
+                                font-family: PingFangSC-Medium;
+                                color: #ffffff;
+                            }
+                        }
+                    }
+                    .infor_platform {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 24px;
+                        span {
+                            font-size: 14px;
+                            font-family: PingFangSC-Regular;
+                            color: #ffffff;
+                            display: inline-block;
+                            margin-right: 16px;
+                        }
+                        img {
+                            display: block;
+                            width: 22px;
+                            height: 22px;
+                            margin-right: 15px;
+                        }
+                    }
+                    .author_infor {
+                        font-size: 14px;
+                        font-family: PingFangSC-Regular;
+                        color: #ffffff;
+                        margin-bottom: 53px;
+                    }
+                    .author_fx {
+                        display: flex;
+                        align-items: center;
+                        p {
+                            font-size: 16px;
+                            font-family: PingFangSC-Regular;
+                            color: #ffffff;
+                            margin-right: 20px;
+                            width: 95px;
+                            height: 36px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border: 1px solid #ffffff;
+                            border-radius: 20px;
+                            &:hover {
+                                border: 1px solid #4077f6;
+                            }
+                            span {
+                                display: inline-block;
+                                margin-left: 8px;
+                            }
+                            img {
+                                display: block;
+                                width: 18px;
+                                height: 17px;
+                            }
+                            i {
+                                font-size: 18px;
+                                color: #fff;
+                            }
+                        }
+                        .fx_img {
+                            display: block;
+                            width: 36px;
+                            height: 36px;
+                        }
+                    }
+                }
+                // 轮播区域
+                .spwapers {
+                    position: absolute;
+                    bottom: 70px;
+                    right: 0;
+
+                    // .eng_cont {
+                    //     width: 700px;
+                    //     transform: rotate(90deg);
+                    //     .el-carousel__item {
+                    //         width: 193px;
+                    //         height: 277px;
+                    //         border-radius: 8px;
+                    //         background-color: rgba(0,0,0,0) !important;
+                    //         text-align: left !important;
+                    //         overflow: auto !important;
+                    //         .img_item {
+                    //             display: block;
+                    //             width: 193px;
+                    //             height: 277px;
+                    //             border-radius: 8px;
+                    //             transform: rotate(-90deg) !important;
+                    //         }
+                    //     }
+                    //     .el-carousel__indicators--outside {
+                    //         display: none !important;
+                    //     }
+                    // }
+                }
+            }
+        }
     }
-  }
+    // 作品区域
+    .works {
+        padding: 0 85px;
+        margin-top: 90px;
+        .tite {
+            font-size: 35px;
+            font-family: PingFang SC;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 40px;
+        }
+
+        .list_cont {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .list {
+                width: 31%;
+                background: #1d1d1d;
+                border-radius: 24px;
+                position: relative;
+                .content {
+                    padding: 31px;
+                    .top_infot {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 19px;
+                        img {
+                            display: block;
+                            width: 64px;
+                            height: 64px;
+                            margin-right: 19px;
+                        }
+                        p {
+                            font-size: 20px;
+                            font-family: PingFangSC-Semibold;
+                            color: #ffffff;
+                        }
+                    }
+                    .zp_img {
+                        display: block;
+                        width: 100%;
+                        height: 266px;
+                        border-radius: 20px;
+                        margin-bottom: 40px;
+                    }
+                    .type_sogin {
+                        font-size: 24px;
+                        font-family: PingFangSC-Semibold;
+                        color: #ffffff;
+                        margin-bottom: 52px;
+                    }
+                    .price {
+                        display: flex;
+                        align-items: center;
+                        font-size: 20px;
+                        font-family: PingFang SC;
+                        font-weight: 500;
+                        .key {
+                            display: inline-block;
+                            margin-right: 5px;
+                            color: #3772ff;
+                        }
+                        .value {
+                            color: #fff;
+                        }
+                    }
+                    .conmit {
+                        width: 178px;
+                        height: 80px;
+                        background: #3772ff;
+                        opacity: 1;
+                        border-radius: 0px 0px 24px 0px;
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        border: 0;
+                        font-size: 18px;
+                        font-family: OPPOSans;
+                        font-weight: bold;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+    // 集卡牌
+    .Illustrated {
+        padding: 0 85px;
+        margin: 90px 0;
+        .tite {
+            font-size: 35px;
+            font-family: PingFang SC;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 40px;
+        }
+        .Illustrated_card {
+            background: #1d1d1d;
+            border-radius: 24px;
+            padding: 53px 45px;
+            .cord_list {
+                margin-bottom: 20px;
+                .tite_img {
+                    display: block;
+                    height: 52px;
+                    width: auto;
+                    margin-bottom: 25px;
+                }
+                .cord_list_cont {
+                    padding-right: 100px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    position: relative;
+                    .aup_img {
+                        position: absolute;
+                        right: 28px;
+                        width: 49px;
+                        height: 49px;
+                        top: 80px;
+                        transform: rotateZ(180deg);
+                    }
+                    .aup_imgarrow {
+                        transition: 0.2s;
+                        transform-origin: center;
+                        transform: rotateZ(180deg);
+                    }
+                    .aup_imgarrowReturn {
+                        transition: 0.2s;
+                        transform-origin: center;
+                        transform: rotateZ(0deg);
+                    }
+                    .card {
+                        width: 14%;
+                        border-radius: 20px;
+                        margin: 0 31px 21px 0;
+                        position: relative;
+                        .mask {
+                            position: absolute;
+                            width: 100%;
+                            height: 213px;
+                            border-radius: 20px;
+                            top: 0;
+                            left: 0;
+                            background: #000000;
+                            opacity: 0.8;
+                        }
+                        img {
+                            width: 100%;
+                            height: 213px;
+                            border-radius: 20px;
+                        }
+                        .nmber {
+                            font-size: 16px;
+                            font-family: PingFangSC-Semibold;
+                            color: #fff;
+                            display: flex;
+                            align-items: center;
+                            margin-top: 14px;
+                            span {
+                                color: #f45353;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // 评论
+    .reply_cont{
+        padding: 0 85px;
+    }
 }
