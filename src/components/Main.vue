@@ -246,7 +246,7 @@ export default {
           name: "所有系列",
           select_logo: require("../assets/suoyouzhong.png"),
           logo: require("../assets/suoyouwei.png"),
-          url: "/",
+          url: "",
           show: false,
           items: [
             {
@@ -283,7 +283,7 @@ export default {
           name: "农场计划",
           select_logo: require("../assets/nongchangzhong.png"),
           logo: require("../assets/nongchangwei.png"),
-          url: "/",
+          url: "",
           show: false,
           items: [
             {
@@ -371,9 +371,9 @@ export default {
       }
     },
     keys_watch() {
-      console.log(this.keys);
       for (let item of this.Navigation_list) {
         if (item.url == this.keys) {
+           console.log(item.url)
           item.show = true;
         }
         for (let items of item.items) {
@@ -403,18 +403,14 @@ export default {
       }
     },
     muen_show_click() {
-      console.log(!this.muen_show);
       sessionStorage.setItem("testKey", !this.muen_show);
       this.muen_show = !this.muen_show;
     },
   },
   mounted: async function () {
-    console.log(this.keys);
     this.keys_watch();
     this.keys_watchs();
     this.muen_show = JSON.parse(sessionStorage.getItem("testKey"));
-    console.log(this.muen_show);
-    console.log(sessionStorage.getItem("testKey"));
   },
 };
 </script>
