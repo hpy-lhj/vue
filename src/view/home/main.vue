@@ -1,5 +1,15 @@
 <template>
-  <Main :keys="$route.query.id==1?'/universe':$route.query.id==2?'/nimo':$route.query.id==3?'/blind_box':'/'">
+  <Main
+    :keys="
+      $route.query.id == 1
+        ? '/universe'
+        : $route.query.id == 2
+        ? '/nimo'
+        : $route.query.id == 3
+        ? '/blind_box'
+        : '/'
+    "
+  >
     <template>
       <div class="min_home">
         <!-- 视频部分 -->
@@ -62,27 +72,36 @@
                     <i class="el-icon-star-on"></i>
                     <span>234</span>
                   </p>
-                  <img @click="Share_show=true" class="fx_img" src="../../assets/fenxiang.png" alt="" />
+                  <img
+                    @click="Share_show = true"
+                    class="fx_img"
+                    src="../../assets/fenxiang.png"
+                    alt=""
+                  />
                 </div>
+              </div>
+              <img class="bf_but" src="../../assets/auth_fang.png" alt="" />
+              <div class="lin_text">
+                <div class="left"></div>
+                <span>NFT</span>
               </div>
               <!-- 轮播区域 -->
               <div class="spwapers">
-                <!-- <div class="eng_cont">
-                  <el-carousel
-                    :interval="4000"
-                    :autoplay="false"
-                    type="card"
-                    height="200px"
+                <div class="top xz" @click="slide">
+                  <img src="../../assets/uax_qh.png" alt="" />
+                </div>
+                <slider ref="slider" :options="sliderinit">
+                  <slideritem
+                    v-for="(item, index) in someList"
+                    :key="index"
+                    :style="item.style"
                   >
-                    <el-carousel-item
-                      v-for="(item, index) in img_list"
-                      :key="index"
-                    >
-                      <img class="img_item" :src="item" alt="" />
-                    </el-carousel-item>
-                  </el-carousel>
-                </div> -->
-                <Swper :showNum="2" :data="img_list"> </Swper>
+                    <img class="slid_img" :src="item.img" alt="" />
+                  </slideritem>
+                </slider>
+                <div class="top" @click="slideNext">
+                  <img src="../../assets/uax_qh.png" alt="" />
+                </div>
               </div>
             </div>
           </div>
@@ -156,7 +175,7 @@
         </div>
       </div>
     </template>
-     <Share :share_vis="Share_show" @close="close_click"></Share>
+    <Share :share_vis="Share_show" @close="close_click"></Share>
   </Main>
 </template>
 <script>
@@ -164,14 +183,14 @@ import Main from "../../components/Main";
 import watch from "./src/watch";
 import methods from "./src/methods";
 import computed from "./src/computed";
-import Swper from "../../components/swper";
 import Reply from "./src/components/reply";
 import Share from "./src/components/Share";
+import { slider, slideritem } from "vue-concise-slider";
 export default {
   name: "HelloWorld",
   data() {
     return {
-      Share_show:false,
+      Share_show: false,
       img_list: [
         require("../../assets/xlimg.png"),
         require("../../assets/taylor.png"),
@@ -179,6 +198,48 @@ export default {
         require("../../assets/taylor.png"),
         require("../../assets/unsplash.png"),
       ],
+      someList: [
+        {
+          img: require("../../assets/kulou.png"),
+          style: {
+            width: "100%",
+            height: "45%",
+            padding: "0 0 30px 0",
+          },
+        },
+        {
+          img: require("../../assets/xlimg.png"),
+          style: {
+            width: "100%",
+            height: "45%",
+            padding: "0 0 30px 0",
+          },
+        },
+        {
+          img: require("../../assets/nftzp.png"),
+          style: {
+            width: "100%",
+            height: "45%",
+            padding: "0 0 30px 0",
+          },
+        },
+      ],
+      sliderinit: {
+        currentPage: 0, //第几页开始
+        thresholdDistance: "100", //在滑动期间触发滑动到下一张/上一张幻灯片的最小距离（以像素为单位）
+        thresholdTime: 1000, //在滑动期间触发滑动到下一张/上一张幻灯片的最低速度（以毫秒为单位）
+        autoplay: 2000, //转换之间的延迟（以毫秒为单位）。
+        loop: true, // 是否循环播放
+        loopedSlides: 2,
+        speed: 800, // 滑动时间
+        direction: "vertical", // 滑动方向
+        pagination: false, // 是否分页
+        preventRebound: true,
+        infinite: 1,
+        slidesToScroll: 1,
+        timingFunction: "ease",
+        duration: 3000,
+      },
       keys: "/home",
       Illustrated_list: [
         {
@@ -282,9 +343,10 @@ export default {
   computed: computed,
   components: {
     Main,
-    Swper,
     Reply,
-    Share
+    Share,
+    slider,
+    slideritem,
   },
   mounted: async function () {
     console.log("源文件：", "main/pages/buy/buy_card");

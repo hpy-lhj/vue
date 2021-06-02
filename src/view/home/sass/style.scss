@@ -121,34 +121,65 @@
                         }
                     }
                 }
+                .bf_but {
+                    display: block;
+                    width: 318px;
+                    height: 318px;
+                    position: absolute;
+                    right: 443px;
+                    bottom: 130px;
+                }
+                .lin_text {
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    bottom: 72px;
+                    right: 0;
+                    .left {
+                        width: 456px;
+                        border: 1px solid #ffffff;
+                        opacity: 1;
+                        margin-right: 18px;
+                    }
+                    span {
+                        font-size: 20px;
+                        font-family: PingFangSC-Semibold;
+                        color: #ffffff;
+                    }
+                }
                 // 轮播区域
                 .spwapers {
                     position: absolute;
-                    bottom: 70px;
+                    bottom: 310px;
                     right: 0;
-
-                    // .eng_cont {
-                    //     width: 700px;
-                    //     transform: rotate(90deg);
-                    //     .el-carousel__item {
-                    //         width: 193px;
-                    //         height: 277px;
-                    //         border-radius: 8px;
-                    //         background-color: rgba(0,0,0,0) !important;
-                    //         text-align: left !important;
-                    //         overflow: auto !important;
-                    //         .img_item {
-                    //             display: block;
-                    //             width: 193px;
-                    //             height: 277px;
-                    //             border-radius: 8px;
-                    //             transform: rotate(-90deg) !important;
-                    //         }
-                    //     }
-                    //     .el-carousel__indicators--outside {
-                    //         display: none !important;
-                    //     }
-                    // }
+                    width: 277px;
+                    height: 410px;
+                    .slid_img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .top {
+                        width: 29px;
+                        height: 40px;
+                        background: #3772ff;
+                        border-radius: 15px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 21px auto 0 auto;
+                        &:hover {
+                            background: #66b1ff;
+                        }
+                        &.xz {
+                            transform: rotate(180deg);
+                            margin-bottom: 21px;
+                        }
+                        img {
+                            display: block;
+                            width: 14.5px;
+                            height: 18.3px;
+                        }
+                    }
                 }
             }
         }
@@ -322,7 +353,7 @@
         }
     }
     // 评论
-    .reply_cont{
+    .reply_cont {
         padding: 0 85px;
     }
 }

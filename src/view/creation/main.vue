@@ -18,6 +18,7 @@
             </p>
 
             <el-button class="pri_buton" type="primary" round
+            @click="counter"
               >我要加入</el-button
             >
           </div>
@@ -57,7 +58,7 @@
           </div>
         </div>
         <!-- 我要加入 -->
-        <div class="join">
+        <div class="join" id="productId">
           <p class="tite">我要加入</p>
           <div class="form_tabel">
             <img class="tori_img" src="../../assets/success.png" alt="" />

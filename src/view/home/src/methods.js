@@ -15,6 +15,12 @@ export default {
     },
     close_click() {
         this.Share_show = false
+    },
+    slide() {
+        this.$refs.slider.$emit('slidePre')
+    },
+    slideNext() {
+        this.$refs.slider.$emit('slideNext')
     }
 
 }
