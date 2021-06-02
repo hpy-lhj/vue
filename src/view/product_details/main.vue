@@ -115,8 +115,9 @@
               </p>
               <p class="right">剩余{{ min_nmber }}</p>
             </div>
-            <el-button @click="$router.push('/purchase_page')" class="comit_price" type="primary" plain
-              >立即购买</el-button
+            <el-button @click="$router.push('/payment')" class="comit_price" type="primary" plain
+              >
+                <span>立即购买</span> </el-button
             >
           </div>
 

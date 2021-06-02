@@ -274,14 +274,16 @@
       }
       .comit_price {
         width: 100%;
-        font-size: 16px;
+        font-size: 22px;
         font-family: PingFangSC-Medium;
-        line-height: 22px;
         color: #ffffff;
         height: 55px;
         background: #3772ff;
         border-radius: 10px;
         border: none;
+        span{
+          font-size: 18px;
+        }
       }
     }
     .Introduction {

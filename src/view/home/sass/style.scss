@@ -244,10 +244,11 @@
                         font-weight: 500;
                         .key {
                             display: inline-block;
-                            margin-right: 5px;
                             color: #3772ff;
+                            font-size: 20px;
                         }
                         .value {
+                            font-size: 20px;
                             color: #fff;
                         }
                     }
@@ -261,7 +262,7 @@
                         right: 0;
                         bottom: 0;
                         border: 0;
-                        font-size: 18px;
+                        font-size: 22px;
                         font-family: OPPOSans;
                         font-weight: bold;
                         color: #ffffff;

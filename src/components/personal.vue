@@ -1,16 +1,23 @@
 <template>
   <div>
     <!-- 个人中心下拉选 -->
-    <el-dropdown trigger="click">
+    <el-dropdown>
       <img
+        @click="$router.push('/personal_center')"
         class="portrait"
-        src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3939608619,1895959066&fm=11&gp=0.jpg"
+        src="../assets/chuangzuotou.png"
         alt="头像"
       />
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item @click.native="$router.push('/personal_center')">元元</el-dropdown-item>
-        <el-dropdown-item @click.native="$router.push('/personal_center')">个人中心</el-dropdown-item>
-        <el-dropdown-item @click.native="$router.push('/login')">退出登录</el-dropdown-item>
+        <el-dropdown-item @click.native="$router.push('/personal_center')"
+          >元元</el-dropdown-item
+        >
+        <el-dropdown-item @click.native="$router.push('/personal_center')"
+          >个人中心</el-dropdown-item
+        >
+        <el-dropdown-item @click.native="$router.push('/login')"
+          >退出登录</el-dropdown-item
+        >
       </el-dropdown-menu>
     </el-dropdown>
   </div>

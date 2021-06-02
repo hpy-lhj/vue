@@ -2,7 +2,7 @@
   <div class="login" :style="{ height: min_height }">
     <img
       class="login_left"
-      src="../../assets/login_left.png"
+      src="https://img.yasuotu.com/uploads/2021/06/02/60b76e4b490ca_60b76e4be4788.png?time=1622634075"
       alt=""
     />
     <div class="login_right">

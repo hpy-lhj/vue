@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 消息盒 -->
-    <el-dropdown class="nover_info" trigger="click">
+    <el-dropdown class="nover_info">
       <span class="el-dropdown-link">
         <i style="font-size: 17px; color: #fff" class="el-icon-bell"></i>
       </span>

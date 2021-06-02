@@ -14,7 +14,7 @@
             :style="{ background: bg_color }"
             class="nav_left"
             v-if="!menu_show_c"
-            @click="$router.go(-1)"
+            @click="$router.push('/')"
           >
             <img class="zoom" src="../assets/sflo.png" alt="" />
             <img class="logo" src="../assets/logo_sl.png" alt="" />

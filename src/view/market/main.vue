@@ -12,11 +12,12 @@
                 <div class="Collection_list_cont">
                   <!-- 头像，作者名 -->
                   <div class="img_value">
-                    <img class="portrait" src="../../assets/jon.png" alt="" />
+                    <img  @click="$router.push('/personal_center?id=1')" class="portrait" src="../../assets/jon.png" alt="" />
                     <p class="name">创作者：元元</p>
                   </div>
                   <!-- 主图 -->
                   <img
+                   @click="$router.push('/product_details')"
                     class="picture"
                     src="../../assets/nftzp.png"
                     alt=""

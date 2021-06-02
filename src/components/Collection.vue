@@ -28,7 +28,7 @@
                   <div class="Collection_list_cont">
                     <!-- 头像，作者名 -->
                     <div class="img_value">
-                      <img class="portrait" src="../assets/jon.png" alt="" />
+                      <img @click="$router.push('/personal_center?id=1')"  class="portrait" src="../assets/jon.png" alt="" />
                       <p class="name">创作者：元元</p>
                     </div>
                     <!-- 主图 -->
@@ -36,6 +36,7 @@
                       class="picture"
                       src="../assets/nftzp.png"
                       alt=""
+                      @click="$router.push('/purchase_page')" 
                     />
                     <!-- 信息 -->
                     <p class="infor">卡牌合集类型1-元宇宙</p>
@@ -196,14 +197,14 @@ export default {
                     display: flex;
                     align-items: center;
                     .key {
-                      font-size: 16px;
+                      font-size: 18px;
                       font-family: PingFang SC;
                       font-weight: 500;
                       color: #3772ff;
                       margin-right: 10px;
                     }
                     .value {
-                      font-size: 16px;
+                      font-size: 18px;
                       font-family: PingFang SC;
                       font-weight: 500;
                       color: #fff;

@@ -113,10 +113,10 @@
             <div class="list" v-for="(item, index) in 3" :key="index">
               <div class="content">
                 <div class="top_infot">
-                  <img src="../../assets/tou.png" alt="" />
+                  <img  @click="$router.push('/personal_center?id=1')" src="../../assets/tou.png" alt="" />
                   <p>创作者：元元</p>
                 </div>
-                <img class="zp_img" src="../../assets/nftzp.png" alt="" />
+                <img  @click="$router.push('/product_details')" class="zp_img" src="../../assets/nftzp.png" alt="" />
                 <p class="type_sogin">卡牌合集类型1-元宇宙</p>
                 <p class="price">
                   <span class="key">5.65 ETH</span>

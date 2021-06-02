@@ -17,7 +17,7 @@
         <div class="pcent_infor">
           <div class="top_pcent_cont">
             <div class="top_pcent">
-              <img class="touiopn" src="../../assets/box_lian.png" alt="" />
+              <img class="touiopn" src="../../assets/chuangzuotou.png" alt="" />
               <div class="name_ext">
                 <span class="name">Rckylx</span>
                 <img
@@ -86,11 +86,11 @@
                 <div class="Collection_list_cont">
                   <!-- 头像，作者名 -->
                   <div class="img_value">
-                    <img class="portrait" src="../../assets/jon.png" alt="" />
+                    <img class="portrait" src="../../assets/chuangzuotou.png" alt="" />
                     <p class="name">创作者：元元</p>
                   </div>
                   <!-- 主图 -->
-                  <img class="picture" src="../../assets/nftzp.png" alt="" />
+                  <img   @click="$router.push('/purchase_page')"  class="picture" src="../../assets/nftzp.png" alt="" />
                   <!-- 信息 -->
                   <p class="infor">卡牌合集类型1-元宇宙</p>
                   <!--  价格，收藏 -->
