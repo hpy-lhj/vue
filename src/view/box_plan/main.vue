@@ -78,7 +78,7 @@
                   </div>
                 </div>
               </div>
-              <div class="right">立即购买</div>
+              <div   @click="$router.push('/product_details')" class="right">立即购买</div>
             </div>
             <!-- 盒子内容 -->
             <div class="content_box">

@@ -28,7 +28,12 @@
                   <div class="Collection_list_cont">
                     <!-- 头像，作者名 -->
                     <div class="img_value">
-                      <img @click="$router.push('/personal_center?id=1')"  class="portrait" src="../assets/jon.png" alt="" />
+                      <img
+                        @click="$router.push('/personal_center?id=1')"
+                        class="portrait"
+                        src="../assets/jon.png"
+                        alt=""
+                      />
                       <p class="name">创作者：元元</p>
                     </div>
                     <!-- 主图 -->
@@ -36,7 +41,7 @@
                       class="picture"
                       src="../assets/nftzp.png"
                       alt=""
-                      @click="$router.push('/purchase_page')" 
+                      @click="$router.push('/purchase_page')"
                     />
                     <!-- 信息 -->
                     <p class="infor">卡牌合集类型1-元宇宙</p>
@@ -107,7 +112,7 @@ export default {
 .coll {
   width: calc(100% - 297px);
   .dialogVisible {
-    position: absolute;
+    position: fixed;
     left: 0;
     width: calc(100% - 297px);
     margin-left: 297px;
@@ -125,8 +130,19 @@ export default {
       position: relative;
       .Collection {
         height: 100%;
-        filter: Alpha(Opacity=30);
         background-color: rgba(0, 0, 0, 0.4);
+        position: relative;
+         filter: blur(20px);
+        &:after {
+          content: "";
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          background: inherit;
+           filter: blur(20px);
+        }
       }
       .Collection_cont {
         position: absolute;
@@ -154,7 +170,7 @@ export default {
               background: #1d1d1d;
               border-radius: 24px;
               margin-bottom: 45px;
-              &.Collection_list_show{
+              &.Collection_list_show {
                 width: 18% !important;
               }
               .Collection_list_cont {
