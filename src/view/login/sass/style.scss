@@ -4,13 +4,34 @@
     display: block;
     width: 50%;
     height: 100%;
+    background-image: url("https://img.yasuotu.com/uploads/2021/06/02/60b76e4b490ca_60b76e4be4788.png?time=1622634075");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    .link_but {
+      width: 122px;
+      height: 85px;
+      background: rgba(0, 0, 0, 0.45);
+      box-shadow: 5px 0px 6px rgba(0, 0, 0, 0.16);
+      border-radius: 16px;
+      font-size: 32px;
+      font-family: Poppins;
+      font-weight: bold;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 15px;
+      left: 74px;
+    }
   }
   .login_right {
     width: 50%;
     height: 100%;
-    // background-image: url('~@/assets/login_right.png');
-    // background-size: 100% 100%;
-    // background-repeat: no-repeat;
+    background-image: url("~@/assets/login_right.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     background-color: #333;
     .docker_login {
       width: 520px;

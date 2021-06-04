@@ -1,10 +1,9 @@
 <template>
   <div class="login" :style="{ height: min_height }">
-    <img
-      class="login_left"
-      src="https://img.yasuotu.com/uploads/2021/06/02/60b76e4b490ca_60b76e4be4788.png?time=1622634075"
-      alt=""
-    />
+    <div class="login_left">
+      <div @click="$router.push('/')" class="link_but">Maya</div>
+    </div>
+
     <div class="login_right">
       <div class="docker_login">
         <div class="login_cont">
