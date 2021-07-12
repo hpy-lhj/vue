@@ -246,8 +246,8 @@ export default {
         },
         {
           name: "积分商城",
-          select_logo: require("../assets/chuangzuoxuan.png"),
-          logo: require("../assets/chuangzuozhe.png"),
+          select_logo: require("../assets/jf_zhong.png"),
+          logo: require("../assets/jf_wei.png"),
           url: "/points_mall",
           show: false,
         },
@@ -317,8 +317,8 @@ export default {
         },
         {
           name: "积分商城",
-          select_logo: require("../assets/chuangzuoxuan.png"),
-          logo: require("../assets/chuangzuozhe.png"),
+          select_logo: require("../assets/jf_zhong.png"),
+          logo: require("../assets/jf_wei.png"),
           url: "/points_mall",
           show: false,
           items: [],
@@ -333,9 +333,7 @@ export default {
       icon_show: false,
     };
   },
-  computed: {
-    
-  },
+  computed: {},
   components: {
     News,
     Collection,
@@ -610,7 +608,6 @@ export default {
             justify-content: center;
             position: relative;
             padding: 14px 0;
-            font-size: 16px;
             &:hover {
               background: #3772ff;
               border-radius: 19px;
@@ -622,6 +619,7 @@ export default {
               margin-right: 27px;
             }
             .name {
+              font-size: 18px;
               font-family: PingFang SC;
               font-weight: 400;
               color: #ffffff;

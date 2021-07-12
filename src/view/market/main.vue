@@ -4,7 +4,13 @@
       <div class="market">
         <div :style="{ height: min_height }" class="dialogVisible">
           <div class="Collection_cont_for">
-            <p class="tite">市场</p>
+            <div class="tite">
+              <span class="left">市场</span>
+              <div class="right">
+                <input type="text" placeholder="输入你想要搜索的" />
+                <img src="../../assets/search.png" alt="" />
+              </div>
+            </div>
             <Menu
               @active_click="active_click"
               @price_change="price_change"
@@ -93,9 +99,7 @@
             <!-- 异常页 -->
             <div class="abnormal" v-else>
               <img src="../../assets/undraw.png" alt="" />
-              <p @click="$router.push('/market')" class="text">
-                暂无NFT
-              </p>
+              <p @click="$router.push('/market')" class="text">暂无NFT</p>
             </div>
           </div>
         </div>

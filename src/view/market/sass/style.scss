@@ -6,9 +6,37 @@
     .Collection_cont_for {
       padding: 155px 42px 55px 42px;
       .tite {
-        font-size: 50px;
-        font-family: PingFangSC-Semibold;
-        color: #ffffff;
+        display: flex;
+        align-items: center;
+        .left {
+          font-size: 50px;
+          font-family: PingFangSC-Semibold;
+          color: #ffffff;
+        }
+        .right {
+          margin-left: 113px;
+          width: 642px;
+          height: 57px;
+          background: #1d1d1d;
+          opacity: 1;
+          border-radius: 29px;
+          display: flex;
+          padding: 0 25px;
+          align-items: center;
+          input {
+            background: #1d1d1d;
+            border: none;
+            font-size: 18px;
+            font-family: PingFangSC-Regular;
+            color: #aaaaaa;
+            width: 100%;
+          }
+          img {
+            display: block;
+            width: 29px;
+            height: 28px;
+          }
+        }
       }
       // 筛选 end
       .my_Collection {
@@ -62,7 +90,7 @@
                     display: block;
                     width: 15px;
                     height: 15px;
-                    margin-right: 5px;
+                    margin: 1px 5px 0 0;
                   }
                   span {
                     font-size: 12px;
@@ -116,7 +144,7 @@
       }
       // 异常页
       .abnormal {
-        margin-top:10%;
+        margin-top: 10%;
         img {
           display: block;
           margin: 0 auto 23px auto;

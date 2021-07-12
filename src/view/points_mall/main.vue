@@ -17,7 +17,7 @@
                 <span class="key">我的积分：</span>
                 <span class="value">675</span>
               </p>
-              <p @click="Share_show=true" class="right">积分记录</p>
+              <p @click="Share_show = true" class="right">积分记录</p>
             </div>
           </div>
           <div class="mao_list">
@@ -45,8 +45,25 @@
                   <!-- 头部作者信息 -->
                   <div class="tit">
                     <div class="left">
-                      <img src="../../assets/chuangzuotou.png" alt="" />
-                      <span>创作者：元元</span>
+                      <!-- <img src="../../assets/chuangzuotou.png" alt="" />
+                      <span>创作者：元元</span> -->
+                      <el-tooltip
+                        class="item"
+                        effect="light"
+                        placement="top-start"
+                      >
+                        <div slot="content">
+                          <p>创作者：元元</p>
+                        </div>
+                        <img
+                          class="tou_img"
+                          @click="
+                            $router.push('/others_page?id=' + item.creator.id)
+                          "
+                          src="../../assets/chuangzuotou.png"
+                          alt=""
+                        />
+                      </el-tooltip>
                     </div>
                     <div class="right">
                       <img src="../../assets/love_laby.png" alt="" />
@@ -80,8 +97,23 @@
                   <!-- 头部作者信息 -->
                   <div class="tit">
                     <div class="left">
-                      <img src="../../assets/chuangzuotou.png" alt="" />
-                      <span>创作者：元元</span>
+                      <el-tooltip
+                        class="item"
+                        effect="light"
+                        placement="top-start"
+                      >
+                        <div slot="content">
+                          <p>创作者：元元</p>
+                        </div>
+                        <img
+                          class="tou_img"
+                          @click="
+                            $router.push('/others_page?id=' + item.creator.id)
+                          "
+                          src="../../assets/chuangzuotou.png"
+                          alt=""
+                        />
+                      </el-tooltip>
                     </div>
                     <div class="right">
                       <img src="../../assets/love_laby.png" alt="" />
@@ -138,7 +170,10 @@
           <p class="absolot">Maya</p>
         </div>
       </div>
-      <Mallsk :centerDialogVisible="Share_show" @closeBindWarnStandard="Share_show = false"></Mallsk>
+      <Mallsk
+        :centerDialogVisible="Share_show"
+        @closeBindWarnStandard="Share_show = false"
+      ></Mallsk>
     </template>
   </Main>
 </template>

@@ -24,13 +24,15 @@
           </el-select>
         </div>
         <p
-          @click="active_click(item,index)"
+          @click="active_click(item, index)"
           class="select_ej"
           :class="{ select_ej_actite: index == active }"
           v-for="(item, index) in select_ej"
           :key="index"
         >
-          {{ item.label }}
+          <span>
+            {{ item.label }}
+          </span>
         </p>
       </div>
       <div class="left">
@@ -137,16 +139,16 @@ export default {
   methods: {
     xl_change(item) {
       console.log(item);
-      this.$emit("xl_change",item)
+      this.$emit("xl_change", item);
     },
     price_change(item) {
-      console.log(item)
-      this.$emit("price_change",item)
+      console.log(item);
+      this.$emit("price_change", item);
     },
-    active_click(data,index){
-      this.active = index
-      this.$emit("active_click",data.value)
-    }
+    active_click(data, index) {
+      this.active = index;
+      this.$emit("active_click", data.value);
+    },
   },
   mounted: async function () {},
 };
@@ -169,11 +171,14 @@ export default {
         height: 35px;
         border: 1px solid #9d9d9d;
         opacity: 1;
-        text-align: center;
-        line-height: 35px;
-        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-family: PingFang SC;
         border-radius: 19px;
+        span{
+                  font-size: 14px;
+        }
         &.select_ej_actite {
           background: #3772ff;
           border: 1px solid #3772ff;

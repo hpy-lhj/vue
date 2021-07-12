@@ -5,7 +5,7 @@
     position: fixed;
     top: 254px;
     right: 48px;
-    z-index: 999;
+    z-index: 10;
     .filx_box_list {
       width: 197px;
       height: 100px;
@@ -205,6 +205,9 @@
               border-color: #83549b;
               border-collapse: collapse;
               border-radius: 12px;
+              tr{
+                height: 50px;
+              }
               th {
                 padding: 20px 25px;
                 font-size: 14px;
@@ -389,7 +392,7 @@
                   display: block;
                   width: 15px;
                   height: 15px;
-                  margin-right: 5px;
+                  margin:1px 5px 0 0;
                 }
                 span {
                   font-size: 12px;

@@ -3,6 +3,10 @@
     <template>
       <div :style="{ height: min_height }" class="purchase_page">
         <div class="purchase_page_cont" v-if="infor_data.product">
+          <p @click="$router.go(-1)" class="link">
+            <i class="el-icon-arrow-left"></i>
+            <span class="value">返回</span>
+          </p>
           <!-- 头部 -->
           <div class="purchase_top">
             <p class="left">
@@ -19,12 +23,12 @@
                 34
               </span>
               <img class="right_img" src="../../assets/detals_fx.png" alt="" />
-              <img
+              <!-- <img
                 @click="$router.go(-1)"
                 class="right_img"
                 src="../../assets/close.png"
                 alt=""
-              />
+              /> -->
             </div>
           </div>
           <!-- 内容 -->

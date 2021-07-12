@@ -31,9 +31,8 @@
         font-family: PingFangSC-Regular, PingFang SC;
         font-weight: 400;
         color: #ffffff;
-        &:hover {
-          background: #6e98fe;
-        }
+        background-color: #3772ff;
+        border: none;
       }
     }
     .introduce_right {
@@ -247,6 +246,7 @@
       height: 40px;
       background: #3772ff;
       border-radius: 20px;
+      border: none;
       margin: 80px 0 155px 0;
     }
   }

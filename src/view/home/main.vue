@@ -150,9 +150,7 @@
                     alt=""
                   />
                   <div class="list_box">
-                    <div class="box">
-                      共6张SSR/3张（30%几率获得）
-                    </div>
+                    <div class="box">共6张SSR/3张（30%几率获得）</div>
                   </div>
                 </div>
 

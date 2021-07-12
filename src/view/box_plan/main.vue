@@ -176,7 +176,7 @@
                         <td>购买</td>
                         <td>购买NFT可获得积分</td>
                         <td>45积分</td>
-                        <td style="color: #8eafff">去市场></td>
+                        <td @click="$router.push('/market')" style="color: #8eafff">去市场></td>
                       </tr>
                     </tbody>
                   </table>

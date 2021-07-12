@@ -2,6 +2,10 @@
   <Main keys="/nimo" :menu_show_c="false">
     <template>
       <div class="details" v-if="infor_data.product">
+        <p @click="$router.go(-1)" class="link">
+          <i class="el-icon-arrow-left"></i>
+          <span class="value">返回</span>
+        </p>
         <div class="details_left">
           <img
             class="top_img"

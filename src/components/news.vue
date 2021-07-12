@@ -3,7 +3,8 @@
     <!-- 消息盒 -->
     <el-dropdown class="nover_info">
       <span class="el-dropdown-link">
-        <i style="font-size: 17px; color: #fff" class="el-icon-bell"></i>
+        <!-- <i style="font-size: 17px; color: #fff" class="el-icon-bell"></i> -->
+        <img class="new_img" src="../assets/maisg.png" alt="">
       </span>
       <el-dropdown-menu slot="dropdown">
         <p class="news_tite">
@@ -68,6 +69,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.new_img{
+  display: block;
+  width: 19px;
+  height: 21px;
+  margin-top: 2px;
+}
 .el-dropdown-menu {
   padding: 0 15px !important;
   top: 80px !important;

@@ -13,7 +13,13 @@
           <div class="Collection"></div>
           <div class="Collection_cont">
             <div class="Collection_cont_for">
-              <p class="tite">我的藏品</p>
+              <div class="tite">
+                <span class="left">我的藏品</span>
+                <div class="right">
+                  <input type="text" placeholder="输入你想要搜索的" />
+                  <img src="../assets/search.png" alt="" />
+                </div>
+              </div>
               <Menu
                 @active_click="active_click"
                 @price_change="price_change"
@@ -272,6 +278,7 @@ export default {
     margin-left: 297px;
     height: 100%;
     background-color: rgba(0, 0, 0, 0);
+    background-color: #000;
     z-index: 80;
     &.coll_shows {
       width: 100% !important;
@@ -284,9 +291,10 @@ export default {
       position: relative;
       .Collection {
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.4);
+        // background-color: rgba(0, 0, 0, 0.4);
+        background-color: #000;
         position: relative;
-        filter: blur(20px);
+        // filter: blur(20px);
         &:after {
           content: "";
           width: 100%;
@@ -295,7 +303,7 @@ export default {
           left: 0;
           top: 0;
           background: inherit;
-          filter: blur(20px);
+          // filter: blur(20px);
         }
       }
       .Collection_cont {
@@ -309,9 +317,37 @@ export default {
         .Collection_cont_for {
           padding: 55px 42px 55px 42px;
           .tite {
-            font-size: 50px;
-            font-family: PingFangSC-Semibold;
-            color: #ffffff;
+            display: flex;
+            align-items: center;
+            .left {
+              font-size: 50px;
+              font-family: PingFangSC-Semibold;
+              color: #ffffff;
+            }
+            .right {
+              margin-left: 113px;
+              width: 642px;
+              height: 57px;
+              background: #1d1d1d;
+              opacity: 1;
+              border-radius: 29px;
+              display: flex;
+              padding: 0 25px;
+              align-items: center;
+              input {
+                background: #1d1d1d;
+                border: none;
+                font-size: 18px;
+                font-family: PingFangSC-Regular;
+                color: #aaaaaa;
+                width: 100%;
+              }
+              img {
+                display: block;
+                width: 29px;
+                height: 28px;
+              }
+            }
           }
           // 筛选 end
           .my_Collection {
