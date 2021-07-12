@@ -1,4 +1,199 @@
-.market {
-  height: 800px;
-  // background-color: aqua;
+.nft_pledge {
+  background: linear-gradient(180deg, #000000 0%, #0b1f15 100%);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 275px;
+  .top_zy_img {
+    position: absolute;
+    right: -100px;
+    display: block;
+    width: 900px;
+    height: auto;
+  }
+  .top_nft {
+    padding: 195px 88px 0 88px;
+    .tite {
+      font-size: 90px;
+      font-family: PingFang SC;
+      font-weight: 600;
+      color: #06e8a5;
+    }
+    .slogen {
+      font-size: 19px;
+      font-family: PingFang SC;
+      font-weight: 400;
+      color: #ffffff;
+      margin: 20px 0 75px 0;
+    }
+    .nft_sy {
+      font-size: 30px;
+      font-family: PingFang SC;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 65px;
+      span {
+        font-size: 30px;
+      }
+    }
+    .count_max {
+      padding: 40px 30px;
+      background-image: url("~@/assets/zy_jx.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      display: inline-block;
+      margin-bottom: 153px;
+      .nmber {
+        display: flex;
+        align-items: center;
+        .left {
+          display: flex;
+          align-items: center;
+          .key {
+            display: inline-block;
+            width: 115px;
+            font-size: 18px;
+            font-family: PingFang SC;
+            color: #ffffff;
+          }
+          .max_plc {
+            display: flex;
+            align-items: center;
+            width: 217px;
+            height: 45px;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            justify-content: space-between;
+            input {
+              background-color: rgba(0, 0, 0, 0);
+              color: #fff;
+              border: 0;
+              width: 70%;
+              padding-left: 15px;
+              font-size: 18px;
+            }
+            .value {
+              display: inline-block;
+              margin-right: 15px;
+              font-size: 18px;
+              font-family: PingFang SC;
+              font-weight: 400;
+              color: #ffffff;
+            }
+          }
+          .bot_input {
+            width: 202px;
+            height: 45px;
+            background-color: #cdcfd0;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            color: #000;
+            padding-left: 15px;
+          }
+        }
+        .right {
+          width: 152px;
+          height: 65px;
+          margin-left: 30px;
+          font-size: 18px;
+          font-family: PingFang SC;
+          font-weight: 600;
+          color: #ffffff;
+          text-align: center;
+          line-height: 65px;
+          &.right_top {
+            background-image: url("~@/assets/zy_top.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+          &.right_bot {
+            background-image: url("~@/assets/zy_bot.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+        }
+        &.nmber_top {
+          margin-bottom: 40px;
+        }
+      }
+    }
+    .introduce {
+      margin-top: 30px;
+      width: 657px;
+      height: 187px;
+      background-image: url("~@/assets/zy_xs.png");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      .introduce_cont {
+        padding: 42px 30px 23px 30px;
+        display: flex;
+        .list_cont {
+          .list {
+            margin-bottom: 10px;
+            .key {
+              display: inline-block;
+              width: 120px;
+            }
+            span {
+              font-size: 20px;
+              font-family: PingFang SC;
+              color: #ffffff;
+            }
+          }
+          &.cont_left {
+            margin-right: 105px;
+          }
+        }
+      }
+    }
+  }
+  // 产品
+  .product_cont {
+    margin-top: 50px;
+    padding: 0 117px 0 66px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .product {
+      width: 19%;
+      background: #1d1d1d;
+      border-radius: 24px;
+      margin-bottom: 45px;
+      .list {
+        padding: 25px;
+        .tite {
+          font-size: 16px;
+          font-family: PingFangSC-Semibold;
+          color: #06e8a5;
+        }
+        .cont {
+          display: flex;
+          justify-content: center;
+          margin: 14px 0;
+          img {
+            display: block;
+            width: 215px;
+            height: 215px;
+            border-radius: 20px;
+            object-fit: cover;
+          }
+        }
+        .type_xl {
+          font-size: 16px;
+          font-family: PingFangSC-Semibold;
+          color: #ffffff;
+          margin-bottom: 17px;
+        }
+        .comit {
+          width: 100%;
+          border-radius: 10px;
+          height: 42px;
+          border: none;
+          font-size: 16px;
+          font-family: PingFang SC;
+          color: #ffffff;
+        }
+      }
+    }
+  }
 }

@@ -32,14 +32,7 @@ a:focus {
 body {
   width: 100vw;
   overflow-x: hidden;
-}
-* {
-  -webkit-touch-callout: none; /*系统默认菜单被禁用*/
-  -webkit-user-select: none; /*webkit浏览器*/
-  -khtml-user-select: none; /*早期浏览器*/
-  -moz-user-select: none; /*火狐*/
-  -ms-user-select: none; /*IE10*/
-  user-select: none;
+  background-color: #000;
 }
 
 input {
@@ -55,6 +48,6 @@ textarea {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px; */
-  background-color: #fff;
+  background-color: #000;
 }
 </style>

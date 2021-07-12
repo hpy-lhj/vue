@@ -1,18 +1,27 @@
 <template>
   <Main keys="/nimo" :menu_show_c="false">
     <template>
-      <div class="details">
+      <div class="details" v-if="infor_data.product">
         <div class="details_left">
-          <img class="top_img" :src="right_list_img" alt="" />
+          <img
+            class="top_img"
+            v-if="infor_data.product.resources"
+            :src="ip + infor_data.product.resources[0].address"
+            alt=""
+          />
           <!-- 作者介绍 -->
           <div class="z_infor">
             <div class="z_infor_cont">
               <p class="tite">作者介绍：</p>
               <div class="cont">
-                <img class="cont_left" src="../../assets/tou.png" alt="" />
+                <img
+                  class="cont_left"
+                  :src="ip + infor_data.owner.avatar"
+                  alt=""
+                />
                 <div class="cont_right">
                   <p class="key">creator</p>
-                  <p class="value">Yuanyuan</p>
+                  <p class="value">{{ infor_data.owner.nickname }}</p>
                 </div>
               </div>
               <p class="bot_txt">
@@ -26,14 +35,25 @@
           <div class="card_infor">
             <p class="tite">卡包内容</p>
             <div class="cont">
-              <img class="top_img" src="../../assets/talor.png" alt="" />
+              <img
+                class="top_img"
+                v-if="infor_data.product.resources"
+                :src="ip + infor_data.product.resources[0].address"
+                alt=""
+              />
               <div class="wf_infor">
                 <div class="wf_infor_cont">
                   <p>总共6张卡牌</p>
                   <p>SSR概率：<span>30%</span></p>
                   <p>高级卡概率：<span>50%</span></p>
                   <p>普通卡概率：<span>50%</span></p>
-                  <p>剩余卡包：<span>234/1000</span></p>
+                  <p>
+                    剩余卡包：<span
+                      >{{ infor_data.product.count }}/{{
+                        infor_data.product.left
+                      }}</span
+                    >
+                  </p>
                 </div>
               </div>
             </div>
@@ -46,9 +66,10 @@
               </p>
               <div class="list_card">
                 <img
+                  v-if="item.resources"
                   v-for="(img, id) in item.img_list"
                   :key="id"
-                  :src="img"
+                  :src="ip + img.resources[0].address"
                   alt=""
                 />
               </div>
@@ -58,26 +79,30 @@
         <!-- 产品介绍 -->
         <div class="details_right">
           <div class="details_right_cont">
-            <div class="tite_cont">
-              <p class="left">{{ tite }}</p>
-              <div class="right">
-                <span>
-                  <img src="../../assets/love_blue.png" alt="" />
-                  34
-                </span>
-                <span>
-                  <img src="../../assets/icony.png" alt="" />
-                  34
-                </span>
-                <img
-                  class="right_img"
-                  src="../../assets/detals_fx.png"
-                  alt=""
-                />
+            <div class="gm_cont">
+              <div class="tite_cont">
+                <p class="left">
+                  {{ infor_data.collection.name + infor_data.product.name }}
+                </p>
+                <div class="right">
+                  <span>
+                    <img src="../../assets/love_blue.png" alt="" />
+                    34
+                  </span>
+                  <span>
+                    <img src="../../assets/icony.png" alt="" />
+                    34
+                  </span>
+                  <img
+                    class="right_img"
+                    src="../../assets/detals_fx.png"
+                    alt=""
+                  />
+                </div>
               </div>
-            </div>
-            <p class="nmber_txt">总计{{ nmber }}</p>
-            <p class="selct">选择卡包 :</p>
+              <p class="nmber_txt">总计{{ infor_data.product.count }}</p>
+              <p class="shoujia">售价：</p>
+              <!-- <p class="selct">选择卡包 :</p>
             <div class="card_llist">
               <div
                 :class="{
@@ -90,9 +115,9 @@
               >
                 <img :src="item.img" alt="" />
               </div>
-            </div>
-            <!-- 步进器 -->
-            <div class="select_number">
+            </div> -->
+              <!-- 步进器 -->
+              <!-- <div class="select_number">
               <span class="tite">选择数量：</span>
               <div class="stepping">
                 <img
@@ -107,20 +132,47 @@
                   alt=""
                 />
               </div>
-            </div>
-            <div class="price_fix">
-              <p class="left">
-                <span class="key"> {{ price * stepping }} ETH </span>
-                <span class="value"> $4,002.85 </span>
-              </p>
-              <p class="right">剩余{{ min_nmber }}</p>
-            </div>
-            <el-button @click="$router.push('/payment')" class="comit_price" type="primary" plain
+            </div> -->
+              <div class="price_fix">
+                <p class="left">
+                  <span class="key"> $ {{ infor_data.price }}</span>
+                  <!-- <span class="value"> $4,002.85 </span> -->
+                </p>
+                <p class="right">剩余{{ infor_data.product.left }}</p>
+              </div>
+              <el-button
+                v-if="!type"
+                @click="$router.push('/payment')"
+                class="comit_price"
+                type="primary"
+                plain
               >
-                <span>立即购买</span> </el-button
-            >
+                <span>立即购买</span>
+              </el-button>
+              <el-button
+                v-if="type"
+                class="comit_price comit_kq"
+                type="primary"
+                plain
+              >
+                <span>立即开启</span>
+              </el-button>
+            </div>
           </div>
-
+          <!-- 出售 -->
+          <div class="cs_price" v-if="type">
+            <div class="cs_price_cont">
+              <p class="tite">出售价格：</p>
+              <div class="but_int">
+                <input
+                  v-model="cs_value"
+                  type="text"
+                  placeholder="请出入出售价格"
+                />
+                <button>立即出售</button>
+              </div>
+            </div>
+          </div>
           <!-- 玩法介紹 -->
           <div class="Introduction">
             <div class="ction">
@@ -169,13 +221,15 @@ export default {
   data() {
     let _clientH = document.documentElement.clientHeight;
     return {
+      ip: "http://18.166.177.61:8080",
       active_index: 0,
-      stepping: 1,
+      // stepping: 1,
       min_height: `${_clientH}px`,
-      nmber: "",
-      price: "",
-      tite: "",
-      min_nmber: "",
+      nmber: 500,
+      price: "4003,00",
+      tite: "源计划（源宇宙）",
+      min_nmber: 399,
+      cs_value: "",
       right_list: [
         {
           name: "源计划（元宇宙)",
@@ -196,7 +250,6 @@ export default {
           img: require("../../assets/huahua.png"),
         },
       ],
-      right_list_img: "",
       card_list: [
         {
           name: "普通卡概率：",
@@ -226,6 +279,9 @@ export default {
           ],
         },
       ],
+      ip: "http://18.166.177.61:8080",
+      infor_data: {},
+      type: this.$route.query.type,
     };
   },
   watch: watch,
@@ -238,11 +294,11 @@ export default {
     console.log("源文件：", "main/pages/buy/buy_card");
     console.log("this：", this);
     console.log("$route：", this.$route);
-    this.right_list_img = this.right_list[0].img;
-    this.nmber = this.right_list[0].max_nmber;
-    this.price = this.right_list[0].price;
-    this.tite = this.right_list[0].name;
-    this.min_nmber = this.right_list[0].max_nmber - 1;
+    if (this.$route.query.diting) {
+      this.er_work();
+    } else {
+      this.get_work();
+    }
   },
 };
 </script>

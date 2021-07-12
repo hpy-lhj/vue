@@ -29,7 +29,7 @@
   .login_right {
     width: 50%;
     height: 100%;
-    background-image: url("~@/assets/login_right.png");
+    // background-image: url("~@/assets/login_right.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-color: #333;
@@ -45,17 +45,31 @@
         .login_top {
           margin-bottom: 40px;
           .tite {
-            margin-bottom: 10px;
-            font-size: 36px;
-            font-family: PingFangSC-Semibold;
-            color: #ffffff;
-            opacity: 1;
+            margin-bottom: 24px;
+            display: flex;
+            .text_active {
+              margin-right: 25px;
+              .key {
+                font-size: 30px;
+                font-family: PingFangSC-Semibold;
+                line-height: 42px;
+                color: #ffffff;
+                margin-bottom: 10px;
+              }
+              .active_lin {
+                width: 55px;
+                height: 0px;
+                border-top: 4px solid #3772ff;
+                opacity: 1;
+                margin: 0 auto;
+              }
+            }
           }
           .sologin {
             font-size: 14px;
             font-family: PingFangSC-Regular;
-            font-weight: 400;
-            color: #ffffff;
+            color: #aaaaaa;
+            opacity: 1;
           }
         }
         .login_input {
@@ -64,18 +78,18 @@
             font-family: PingFangSC-Semibold;
             color: #ffffff;
             opacity: 1;
+            margin-bottom: 15px;
           }
           .ruleForm {
-            margin-top: 15px;
             .el-form-item {
-              margin-bottom: 39px;
+              margin-bottom: 30px;
               .el-input__inner {
                 height: 50px;
                 border: 0;
                 font-size: 14px;
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
-                color: #777777;
+                color: #fff;
                 background: #2f2f2f;
                 border-radius: 6px;
               }
@@ -104,6 +118,7 @@
             background: #3772ff;
             border-radius: 25px;
             border: none;
+            margin-top: 30px;
             &:hover {
               background: #6e98fe;
             }
@@ -111,7 +126,7 @@
         }
         //
         .tripartite {
-          margin-top: 94px;
+          margin-top:40px;
           .lin_cont {
             display: flex;
             align-items: center;
@@ -137,11 +152,18 @@
           .img_txt {
             display: flex;
             align-items: center;
+            img {
+              display: block;
+              margin-right: 7px;
+            }
             .login_txt {
               font-size: 16px;
               font-family: PingFangSC-Regular, PingFang SC;
               font-weight: 400;
               color: #ffffff;
+              &:hover {
+                color: #4077f6;
+              }
             }
           }
         }

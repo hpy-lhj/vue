@@ -16,7 +16,8 @@ import personal_center from '@/view/personal_center/main'
 import editing_materials from '@/view/editing_materials/main'
 import purchase_page from '@/view/purchase_page/main'
 import message_page from '@/view/message_page/main'
-
+import points_mall from '@/view/points_mall/main'
+import others_page from '@/view/others_page/main'
 Vue.use(Router)
 
 export default new Router({
@@ -80,6 +81,16 @@ export default new Router({
       path: '/message_page',
       name: 'message_page',
       component: message_page
+    },
+    {
+      path: '/points_mall',
+      name: 'points_mall',
+      component: points_mall
+    },
+    {
+      path: '/others_page',
+      name: 'others_page',
+      component: others_page
     },
   ],
   scrollBehavior(to, from, savedPosition) {

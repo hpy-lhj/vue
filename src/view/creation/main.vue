@@ -17,8 +17,7 @@
               无论你是独立画家或者机构都可以成为我们的签约对象
             </p>
 
-            <el-button class="pri_buton" type="primary" round
-            @click="counter"
+            <el-button class="pri_buton" type="primary" round @click="counter"
               >我要加入</el-button
             >
           </div>
@@ -73,8 +72,8 @@
               >
                 <el-form-item label="类型" prop="radio">
                   <el-radio-group v-model="ruleForm.radio">
-                    <el-radio-button label="0">个人</el-radio-button>
-                    <el-radio-button label="1">机构</el-radio-button>
+                    <el-radio-button label="1">个人</el-radio-button>
+                    <el-radio-button label="2">机构</el-radio-button>
                   </el-radio-group>
                 </el-form-item>
                 <el-form-item label="邮箱" prop="emel">
@@ -113,7 +112,7 @@
                 <el-form-item label="上传作品" prop="works">
                   <div class="works">
                     <p class="guige">PNG, GIF, WEP, MP4或MP3. 最多30mb</p>
-                    <Upload>
+                    <Upload @on_success="on_success">
                       <el-button class="ext_but" size="small" type="primary"
                         >上传文件</el-button
                       >
@@ -123,7 +122,9 @@
               </el-form>
             </div>
           </div>
-          <el-button class="confirm" type="primary" round>提交审核</el-button>
+          <el-button @click="Submit_review" class="confirm" type="primary" round
+            >提交审核</el-button
+          >
         </div>
       </div>
     </template>
@@ -131,7 +132,7 @@
 </template>
 <script>
 import Main from "../../components/Main";
-import Upload from "../../components/Upload";
+import Upload from "./src/components/Upload.vue";
 import watch from "./src/watch";
 import methods from "./src/methods";
 import computed from "./src/computed";
@@ -145,7 +146,7 @@ export default {
         require("../../assets/enward.png"),
       ],
       ruleForm: {
-        radio: "0",
+        radio: "1",
         emel: "",
         mobile: "",
         name: "",
@@ -223,7 +224,7 @@ export default {
   computed: computed,
   components: {
     Main,
-    Upload
+    Upload,
   },
   mounted: async function () {
     console.log("源文件：", "main/pages/buy/buy_card");

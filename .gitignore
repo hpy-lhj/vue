@@ -23,3 +23,9 @@ yarn-error.log*
 *.sw?
 
 .vercel
+
+node_modules
+
+#Hardhat files
+cache
+artifacts

@@ -17,17 +17,20 @@
             @click="$router.push('/')"
           >
             <img class="zoom" src="../assets/sflo.png" alt="" />
-            <img class="logo" src="../assets/logo_sl.png" alt="" />
+            <div class="right">
+              <img class="logo_maya" src="../assets/mogo_maya.png" alt="" />
+              <img class="maya_logo" src="../assets/maya_logo.png" alt="" />
+            </div>
           </div>
         </div>
         <div class="Nav_right">
           <p class="right_nv" @click="news_show = !news_show">
-            <News></News>
+            <News @news_type="news_type"></News>
             <span class="nav_dn"></span>
           </p>
           <!--  -->
           <p class="right_nv Collection" @click="icon_show = !icon_show">
-            <span>藏品</span>
+            <span>{{ $t("m.Collection") }}</span>
             <i
               :class="{
                 arrowTransform: !icon_show,
@@ -37,8 +40,12 @@
             ></i>
           </p>
           <!--  -->
-          <p class="right_nv login" @click="$router.push('/login')">
-            <span>注册登录</span>
+          <p
+            v-if="!$loginData.Auth_Token"
+            class="right_nv login"
+            @click="$router.push('/login')"
+          >
+            <span>立即登录</span>
           </p>
           <!--  -->
           <p class="right_nv">
@@ -73,13 +80,10 @@
             src="../assets/sflo.png"
             alt=""
           />
-          <img
-            v-if="!muen_show"
-            @click="$router.push('/')"
-            class="logo"
-            src="../assets/logo_sl.png"
-            alt=""
-          />
+          <div v-if="!muen_show" class="right" @click="$router.push('/')">
+            <img class="logo_maya" src="../assets/mogo_maya.png" alt="" />
+            <img class="maya_logo" src="../assets/maya_logo.png" alt="" />
+          </div>
         </div>
         <!-- 菜单栏 -->
         <div class="menu">
@@ -240,6 +244,13 @@ export default {
           url: "/creation",
           show: false,
         },
+        {
+          name: "积分商城",
+          select_logo: require("../assets/chuangzuoxuan.png"),
+          logo: require("../assets/chuangzuozhe.png"),
+          url: "/points_mall",
+          show: false,
+        },
       ],
       Navigation_list: [
         {
@@ -264,7 +275,7 @@ export default {
           ],
         },
         {
-          name: "市场",
+          name: this.$t("m.market"),
           select_logo: require("../assets/shichangzhong.png"),
           logo: require("../assets/scwei.png"),
           url: "/market",
@@ -304,6 +315,14 @@ export default {
           show: false,
           items: [],
         },
+        {
+          name: "积分商城",
+          select_logo: require("../assets/chuangzuoxuan.png"),
+          logo: require("../assets/chuangzuozhe.png"),
+          url: "/points_mall",
+          show: false,
+          items: [],
+        },
       ],
       news_list: [
         "[关注] 元元创建了新作品“元宇宙”",
@@ -314,7 +333,9 @@ export default {
       icon_show: false,
     };
   },
-  computed: {},
+  computed: {
+    
+  },
   components: {
     News,
     Collection,
@@ -373,7 +394,7 @@ export default {
     keys_watch() {
       for (let item of this.Navigation_list) {
         if (item.url == this.keys) {
-           console.log(item.url)
+          console.log(item.url);
           item.show = true;
         }
         for (let items of item.items) {
@@ -396,15 +417,18 @@ export default {
       ) {
         this.menu_away_list[0].show = true;
       }
-      if (
-        this.keys == "/bnb_lp"
-      ) {
+      if (this.keys == "/bnb_lp") {
         this.menu_away_list[3].show = true;
       }
     },
     muen_show_click() {
       sessionStorage.setItem("testKey", !this.muen_show);
       this.muen_show = !this.muen_show;
+    },
+    // 消息组件的传值
+    news_type(data) {
+      console.log(data);
+      this.$emit("message_page", data);
     },
   },
   mounted: async function () {
@@ -449,12 +473,22 @@ export default {
           display: block;
           width: 24px;
           height: 24px;
-          margin-right: 20px;
+          margin-right: 29px;
         }
-        .logo {
-          display: block;
-          width: 116px;
-          height: 69px;
+        .right {
+          display: flex;
+          align-items: center;
+          .logo_maya {
+            display: block;
+            width: 56px;
+            height: 53px;
+            margin-right: 20px;
+          }
+          .maya_logo {
+            display: block;
+            width: 88px;
+            height: 27px;
+          }
         }
       }
       .Nav_right {
@@ -531,19 +565,30 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        padding-top: 11px;
         .zoom {
           display: block;
           width: 24px;
           height: 24px;
-          margin-right: 13px;
+          margin-right: 29px;
           &.zoom_menu {
             margin-right: 0 !important;
           }
         }
-        .logo {
-          display: block;
-          width: 116px;
-          height: 69px;
+        .right {
+          display: flex;
+          align-items: center;
+          .logo_maya {
+            display: block;
+            width: 56px;
+            height: 53px;
+            margin-right: 20px;
+          }
+          .maya_logo {
+            display: block;
+            width: 88px;
+            height: 27px;
+          }
         }
       }
       .menu {
@@ -721,6 +766,19 @@ export default {
   .hover.el-select-dropdown__item:hover {
     background-color: rgba(0, 0, 0, 0) !important;
     color: #3772ff !important;
+  }
+}
+.el-tooltip__popper.is-light {
+  font-size: 14px !important;
+  color: #fff !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  padding: 8px 18px !important;
+  min-width: 121px !important;
+  border: 1px solid #9d9d9d !important;
+  opacity: 1;
+  border-radius: 17px !important;
+  .popper__arrow {
+    display: none !important;
   }
 }
 </style>

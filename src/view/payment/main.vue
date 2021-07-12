@@ -25,7 +25,7 @@
         </div>
         <p class="type_tite">选择您的优惠券</p>
         <div
-        @click="discount=!discount"
+          @click="discount = !discount"
           class="discount"
           :class="{
             discount_active: discount,
@@ -35,8 +35,10 @@
           <span>是否要使用9.5折优惠券</span>
         </div>
         <p class="type_tite">总金额：0.78 ETH</p>
-         <el-button class="paymen_but" type="primary" round>立即支付</el-button>
-          <p class="bot_tishi">我们没有您的私人密钥，没有您的确认，我们无法动用您的资金</p>
+        <el-button class="paymen_but" type="primary" round>立即支付</el-button>
+        <p class="bot_tishi">
+          我们没有您的私人密钥，没有您的确认，我们无法动用您的资金
+        </p>
       </div>
     </div>
   </div>
@@ -51,7 +53,7 @@ export default {
   data() {
     let _clientH = document.documentElement.clientHeight;
     return {
-      discount:false,
+      discount: false,
       min_height: `${_clientH}px`,
       active_index: 0,
       payment_list: [

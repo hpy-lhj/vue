@@ -25,8 +25,8 @@
               <!-- 个人信息编辑 -->
               <div v-if="active_index == 0" class="percent_edit">
                 <div class="tou_opin">
-                  <img src="../../assets/chuangzuotou.png" alt="" />
-                  <Upload>
+                  <img :src="tou_img" alt="" />
+                  <Upload @on_success="on_success">
                     <el-button class="ext_but" size="small" type="primary"
                       >上传新头像</el-button
                     >
@@ -130,6 +130,7 @@
             </div>
             <el-button
               v-if="active_index == 0"
+              @click="preservation"
               class="conmit"
               size="small"
               type="primary"
@@ -146,7 +147,7 @@ import Main from "../../components/Main";
 import watch from "./src/watch";
 import methods from "./src/methods";
 import computed from "./src/computed";
-import Upload from "../../components/Upload";
+import Upload from "./src/components/Upload.vue";
 export default {
   data() {
     let _clientH = document.documentElement.clientHeight;
@@ -154,9 +155,11 @@ export default {
       min_height: `${_clientH}px`,
       edit_list: ["基本信息", "账户链接"],
       active_index: 0,
+      tou_img: this.$loginData.userMobile,
       ruleForm: {
-        name: "",
-        textarea: "",
+        name: this.$loginData.userName,
+        textarea: this.$loginData.inviteCode,
+        works: "",
       },
       accont_ruleForm: {
         card: "",
@@ -199,6 +202,9 @@ export default {
     console.log("源文件：", "main/pages/buy/buy_card");
     console.log("this：", this);
     console.log("$route：", this.$route);
+    console.log(this.$loginData);
+    this.metadata();
+    // this.getWordData()
   },
 };
 </script>

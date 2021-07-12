@@ -36,13 +36,14 @@
                 <!-- 作者信息 -->
                 <div class="inm_infor">
                   <img
+                    @click="transfer"
                     class="left"
-                    src="../../assets/chuangzuotou.png"
+                    :src="user_recommend_obj.avatar"
                     alt=""
                   />
                   <div class="right">
                     <p class="top">creator</p>
-                    <p class="bot">Yuanyuan</p>
+                    <p class="bot">{{ user_recommend_obj.nickname }}</p>
                   </div>
                 </div>
                 <!-- 作者 平台 -->
@@ -53,14 +54,15 @@
                 </div>
                 <!-- 作者介绍信息 -->
                 <div class="author_infor">
-                  <p>
+                  <p>{{ user_recommend_obj.introduction }}</p>
+                  <!-- <p>
                     This is Mani Token-Gold Edition. As the owner of this token,
                     you contributed Mani Grupa.
                   </p>
                   <p>
                     Each owner is our senior partner.We will use me from time to
                     time.
-                  </p>
+                  </p> -->
                 </div>
                 <!-- 分享 -->
                 <div class="author_fx">
@@ -73,7 +75,7 @@
                     <span>234</span>
                   </p>
                   <img
-                    @click="Share_show = true"
+                    @click="Share_shows = true"
                     class="fx_img"
                     src="../../assets/fenxiang.png"
                     alt=""
@@ -96,7 +98,7 @@
                     :key="index"
                     :style="item.style"
                   >
-                    <img class="slid_img" :src="item.img" alt="" />
+                    <img class="slid_img" :src="ip + item.img" alt="" />
                   </slideritem>
                 </slider>
                 <div class="top" @click="slideNext">
@@ -110,24 +112,59 @@
         <div class="works">
           <p class="tite">Former universe NFTS</p>
           <div class="list_cont">
-            <div class="list" v-for="(item, index) in 3" :key="index">
+            <div class="list" v-for="(item, index) in works_list" :key="index">
               <div class="content">
+                <!-- 头部 -->
                 <div class="top_infot">
-                  <img  @click="$router.push('/personal_center?id=1')" src="../../assets/tou.png" alt="" />
-                  <p>创作者：元元</p>
+                  <el-tooltip class="item" effect="light" placement="top-start">
+                    <div slot="content">
+                      <p>创作者：{{ item.creator.nickname }}</p>
+                    </div>
+                    <img
+                      class="tou_img"
+                      @click="
+                        $router.push('/others_page?id=' + item.creator.id)
+                      "
+                      :src="ip + item.creator.avatar"
+                      alt=""
+                    />
+                  </el-tooltip>
+                  <div class="right_sc" @click="love_show = !love_show">
+                    <img
+                      v-if="love_show"
+                      src="../../assets/love_laby.png"
+                      alt=""
+                    />
+                    <img v-else src="../../assets/love_with.png" alt="" />
+                    <span>234</span>
+                  </div>
                 </div>
-                <img  @click="$router.push('/product_details')" class="zp_img" src="../../assets/nftzp.png" alt="" />
-                <p class="type_sogin">卡牌合集类型1-元宇宙</p>
-                <p class="price">
-                  <span class="key">5.65 ETH</span>
-                  <span class="value">($100.3)</span>
+                <div class="zp_img_cont">
+                  <img
+                    @click="
+                      $router.push('/product_details?diting=1&id=' + item.id)
+                    "
+                    class="zp_img"
+                    v-if="item.resources"
+                    :src="ip + item.resources[0].address"
+                    alt=""
+                  />
+                  <div class="list_box">
+                    <div class="box">
+                      共6张SSR/3张（30%几率获得）
+                    </div>
+                  </div>
+                </div>
+
+                <p class="type_sogin">
+                  {{ item.collection.name + "_" + item.name }}
                 </p>
-                <button
-                  @click="$router.push('/product_details')"
-                  class="conmit"
-                >
-                  Buy now
-                </button>
+                <p class="price">
+                  <span class="key">${{ item.price }}</span>
+                  <button @click="purchase(item)" class="conmit">
+                    Buy now
+                  </button>
+                </p>
               </div>
             </div>
           </div>
@@ -144,7 +181,7 @@
             >
               <img class="tite_img" :src="item.tite_img" alt="" />
               <div class="cord_list_cont">
-                <img
+                <!-- <img
                   @click="uap_clack(index)"
                   v-if="item.list.length > 5"
                   class="aup_img"
@@ -154,14 +191,18 @@
                   }"
                   src="../../assets/aup.png"
                   alt=""
-                />
+                /> -->
                 <div class="card" v-for="(card, id) in item.list" :key="id">
-                  <div v-if="id < item.length_nmber">
-                    <div class="mask" v-if="card.nmber == 0"></div>
-                    <img :src="card.img" alt="" />
-                    <p class="nmber" v-if="card.nmber > 0">
-                      剩余数量：<span>{{ card.nmber }}</span
-                      ><span>/</span><span>{{ card.max_nmber }}</span>
+                  <div>
+                    <div class="mask" v-if="card.left == 0"></div>
+                    <img
+                      v-if="card.resources"
+                      :src="ip + card.resources[0].address"
+                      alt=""
+                    />
+                    <p class="nmber" v-if="card.left > 0">
+                      剩余数量：<span>{{ card.left }}</span
+                      ><span>/</span><span>{{ card.count }}</span>
                     </p>
                   </div>
                 </div>
@@ -171,11 +212,18 @@
         </div>
         <!-- 评论回复 -->
         <div class="reply_cont">
-          <Reply></Reply>
+          <Reply :user_id="user_id"></Reply>
         </div>
       </div>
     </template>
-    <Share :share_vis="Share_show" @close="close_click"></Share>
+    <Share :share_vis="Share_shows" @close="close_click"></Share>
+    <Purchasevue
+      :types="types"
+      :works="works_pur"
+      :label="label"
+      :centerDialogVisible="Share_show"
+      @closeBindWarnStandard="Share_show = false"
+    ></Purchasevue>
   </Main>
 </template>
 <script>
@@ -186,11 +234,19 @@ import computed from "./src/computed";
 import Reply from "./src/components/reply";
 import Share from "./src/components/Share";
 import { slider, slideritem } from "vue-concise-slider";
+import Web3 from "../../libs/getWeb3";
+import Purchasevue from "./src/components/Purchasevue";
 export default {
   name: "HelloWorld",
   data() {
     return {
+      ip: "http://18.166.177.61:8080",
+      types: false,
+      Share_shows: false,
+      love_show: true,
       Share_show: false,
+      ip: "http://18.166.177.61:8080",
+      user_id: "",
       img_list: [
         require("../../assets/xlimg.png"),
         require("../../assets/taylor.png"),
@@ -198,6 +254,10 @@ export default {
         require("../../assets/taylor.png"),
         require("../../assets/unsplash.png"),
       ],
+      user_recommend_obj: {},
+      works_list: [],
+      works_pur: {},
+      label: true,
       someList: [
         {
           img: require("../../assets/kulou.png"),
@@ -231,7 +291,7 @@ export default {
         autoplay: 2000, //转换之间的延迟（以毫秒为单位）。
         loop: true, // 是否循环播放
         loopedSlides: 2,
-        speed: 800, // 滑动时间
+        speed: 2000, // 滑动时间
         direction: "vertical", // 滑动方向
         pagination: false, // 是否分页
         preventRebound: true,
@@ -347,11 +407,20 @@ export default {
     Share,
     slider,
     slideritem,
+    Purchasevue,
   },
   mounted: async function () {
     console.log("源文件：", "main/pages/buy/buy_card");
     console.log("this：", this);
     console.log("$route：", this.$route);
+    console.log(this.$loginData);
+    this.get_data();
+    this.get_work();
+    this.box_data();
+    // Web3.getWeb3().then((res) => {
+    //   web3 = res;
+    //   console.log("getWeb3", res);
+    // });
   },
 };
 </script>

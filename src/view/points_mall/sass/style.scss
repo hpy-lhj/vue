@@ -1,0 +1,340 @@
+.points_mall {
+  padding: 181px 130px 250px 130px;
+  background: #000000;
+  .top_img{
+    position: absolute;
+    display:block;
+    width: 998px;
+    height: 1087px;
+    right: 80px;
+    top: 50px;
+  }
+  .top_infor {
+    margin-bottom: 280px;
+    .tite {
+      margin-bottom: 30px;
+      font-size: 80px;
+      font-family: PingFangSC-Semibold;
+      color: #ffffff;
+    }
+    .infor {
+      margin-bottom: 38px;
+      p {
+        font-size: 16px;
+        font-family: PingFang SC;
+        color: #ffffff;
+      }
+    }
+    .nft_jf {
+      width: 276px;
+      height: 60px;
+      border: 1px solid #ffffff;
+      margin-bottom: 114px;
+      .cont {
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .left {
+          span {
+            font-size: 25px;
+            font-family: PingFangSC-Semibold;
+          }
+          .key {
+            color: #fff;
+          }
+          .value {
+            color: #f37235;
+          }
+        }
+        .right {
+          font-family: PingFang SC;
+          font-weight: 500;
+          line-height: 18px;
+          color: #3772ff;
+        }
+      }
+    }
+    .mao_list {
+      display: flex;
+      align-items: center;
+      .list {
+        width: 147px;
+        height: 55px;
+        background: linear-gradient(91deg, #f97590 0%, #ca47f3 47%, #ff7f00 100%);
+        margin-right: 50px;
+        .list_cont {
+          width: 147px;
+          height: 55px;
+          background: linear-gradient(91deg, #f97590 0%, #ca47f3 47%, #ff7f00 100%);
+          border: 1px solid #ffffff;
+          position: relative;
+          top: 5px;
+          left: 5px;
+          text-align: center;
+          line-height: 55px;
+          font-size: 18px;
+          font-family: PingFangSC-Semibold;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  .nft_cont {
+    .tite {
+      font-size: 50px;
+      font-family: PingFangSC-Semibold;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+    .infor {
+      font-size: 16px;
+      font-family: PingFang SC;
+      font-weight: 500;
+      color: #ffffff;
+    }
+    .list_cont {
+      margin-top: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 150px;
+      .nft_list {
+        margin-bottom: 40px;
+        .list {
+          width: 310px;
+          position: relative;
+          margin-bottom: 36px;
+          &.new_list {
+            &::after {
+              background: linear-gradient(91deg, #ff00c4 0%, #ff0058 73%, #ffcc3e 100%);
+            }
+            .box {
+              background: linear-gradient(143deg, #8a36d3 0%, #e75b37 100%);
+              .priace {
+                span {
+                  color: #fff;
+                }
+              }
+            }
+          }
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            bottom: -4px;
+            left: -4px;
+            border-radius: 25px;
+            background: linear-gradient(91deg, #00afff 0%, #ff0058 73%, #ffcc3e 100%);
+          }
+          .box {
+            width: 310px;
+            border-radius: 25px;
+            position: relative;
+            background: linear-gradient(143deg, #0050ae 0%, #0c0f31 100%);
+            z-index: 99;
+            &.box_show {
+              background: #272727;
+              .priace {
+                button {
+                  background: #4e4e4e;
+                }
+              }
+            }
+            // 头部信息
+            .tit {
+              padding: 22px 22px 13px 22px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .left {
+                display: flex;
+                align-items: center;
+                img {
+                  display: block;
+                  width: 44px;
+                  height: 44px;
+                  margin-right: 13px;
+                }
+                span {
+                  font-size: 14px;
+                  font-family: PingFangSC-Semibold;
+                  color: #ffffff;
+                }
+              }
+              .right {
+                width: 83px;
+                height: 32px;
+                border: 1px solid #ffffff;
+                opacity: 1;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                  display: block;
+                  width: 15px;
+                  height: 15px;
+                  margin-right: 6px;
+                }
+                span {
+                  font-size: 13px;
+                  font-family: PingFangSC-Regular;
+                  color: #ffffff;
+                }
+              }
+            }
+            // 作品
+            .cont {
+              width: 261px;
+              height: 261px;
+              margin: 0 auto 17px auto;
+              img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 20px;
+              }
+            }
+            .infor {
+              font-size: 20px;
+              font-family: PingFangSC-Semibold;
+              color: #ffffff;
+              opacity: 1;
+              padding-left: 22px;
+            }
+            .priace {
+              padding-left: 22px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-top: 15px;
+              span {
+                color: #3772ff;
+                font-size: 20px;
+              }
+              button {
+                width: 133px;
+                height: 61px;
+                background: linear-gradient(269deg, #ffca3e 0%, #ff1655 56%, #cb247b 100%);
+                opacity: 1;
+                border-radius: 24px 0px 24px 0px;
+                text-align: center;
+                line-height: 61px;
+                color: #fff;
+                font-size: 16px;
+                border: none;
+              }
+            }
+          }
+        }
+        .list_bot {
+          font-size: 16px;
+          font-family: PingFang SC;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  .exchange {
+    position: relative;
+    .tite {
+      font-size: 50px;
+      font-family: PingFangSC-Semibold;
+      color: #ffffff;
+      margin-bottom: 58px;
+    }
+    .absolot {
+      position: absolute;
+      font-size: 183px;
+      color: #141414;
+      opacity: 1;
+      right: 0px;
+      top: 180px;
+    }
+    .exchange_cont {
+      width: 679px;
+      height: 361px;
+      background: #1d1d1d;
+      opacity: 1;
+      border-radius: 14px;
+      .cont {
+        padding: 61px 0 0 53px;
+        display: flex;
+        .left {
+          display: block;
+          margin-right: 72px;
+          width: 145px;
+          height: 114px;
+        }
+        .right {
+          .tete {
+            font-size: 30px;
+            font-family: PingFangSC-Semibold;
+            color: #ffffff;
+            margin-bottom: 6px;
+          }
+          .infor {
+            font-size: 16px;
+            font-family: PingFang SC;
+            color: #ffffff;
+            margin-bottom: 43px;
+          }
+          .bjq {
+            display: flex;
+            margin-bottom: 14px;
+            span {
+              font-size: 16px;
+              font-family: PingFang SC;
+              color: #ffffff;
+              display: inline-block;
+              margin-right: 107px;
+            }
+            .right {
+              display: flex;
+              align-items: center;
+              img {
+                display: block;
+                width: 27px;
+                height: 27px;
+              }
+              input {
+                font-size: 20px;
+                font-family: PingFangSC-Semibold;
+                color: #ffffff;
+                width: 80px;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0);
+                border: none;
+              }
+            }
+          }
+          .nmber {
+            font-size: 16px;
+            font-family: PingFang SC;
+            color: #ffffff;
+            margin-bottom: 48px;
+          }
+          .dh_but {
+            width: 268px;
+            height: 51px;
+            border-radius: 14px;
+            text-align: center;
+            line-height: 51px;
+            font-size: 16px;
+            font-family: OPPOSans;
+            font-weight: bold;
+            color: #ffffff;
+            background: linear-gradient(269deg, #ffca3e 0%, #ff1655 56%, #cb247b 100%);
+            opacity: 1;
+            border-radius: 24px 0px 24px 0px;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}

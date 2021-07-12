@@ -2,6 +2,7 @@
    background-color: #000;
    .edit_cont {
       padding: 120px 240px 100px 240px;
+      background-color: #000;
       display: flex;
       .message_left {
          border-radius: 8px;
@@ -65,7 +66,13 @@
          background: #1d1d1d;
          border-radius: 8px;
          .one_reply {
-            padding-bottom: 200px;
+            // padding-bottom: 200px;
+            .yichang {
+               padding: 40px;
+               text-align: center;
+               color: #fff;
+               font-size: 20px;
+            }
             .reply {
                padding: 45px 40px 40px 40px;
                border-bottom: 1px solid #5d5d5d;
@@ -127,6 +134,26 @@
                   margin-top: 10px;
                   .top {
                      margin-bottom: 17px;
+                     .hf_confs {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-top: 20px;
+                        .shuru_inont_show {
+                           input::-webkit-input-placeholder {
+                              color: #ed5b55;
+                           }
+                        }
+                        button {
+                           width: 77px;
+                           height: 40px;
+                           background: #3772ff;
+                           border-radius: 20px;
+                           color: #fff;
+                           border: none;
+                           margin-left: 30px;
+                        }
+                     }
                      .tite {
                         font-size: 14px;
                         font-family: PingFangSC-Regular;
@@ -142,7 +169,6 @@
                         border-radius: 10px;
                         border: none;
                         color: #fff;
-                        margin-top: 20px;
                      }
                   }
                   .reply_bot_cont {
@@ -324,10 +350,10 @@
                   position: relative;
                   .input_padd {
                      padding: 32px;
-                     .shuru_inont_show{
+                     .shuru_inont_show {
                         textarea::-webkit-input-placeholder {
                            color: #ed5b55;
-                       }
+                        }
                      }
                      .el-textarea__inner {
                         background: #2f2f2f;

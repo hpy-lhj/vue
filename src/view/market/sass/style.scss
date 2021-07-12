@@ -4,7 +4,7 @@
     background-color: #000;
     overflow: auto;
     .Collection_cont_for {
-      padding: 155px 35px 55px 65px;
+      padding: 155px 42px 55px 42px;
       .tite {
         font-size: 50px;
         font-family: PingFangSC-Semibold;
@@ -12,89 +12,125 @@
       }
       // 筛选 end
       .my_Collection {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        .Collection_list {
-          width: 23%;
-          background: #1d1d1d;
-          border-radius: 24px;
-          margin-bottom: 45px;
-          .Collection_list_cont {
-            padding: 25px 25px 35px 25px;
-            .img_value {
-              display: flex;
-              align-items: center;
-              margin-bottom: 14px;
-              .portrait {
-                display: block;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                margin-right: 14px;
+        .list_cont {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          .list {
+            width: 290px;
+            background: #1d1d1d;
+            border-radius: 24px;
+            position: relative;
+            margin: 0 20px 32px 0;
+            &:nth-child(5n + 5) {
+              margin-right: 0;
+            }
+            .content {
+              .top_infot {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 22px 20px 0 20px;
+                margin-bottom: 15px;
+                .item_cont {
+                  display: flex;
+                  align-items: center;
+                  .tou_img {
+                    display: block;
+                    width: 36px;
+                    height: 36px;
+                  }
+                  .tou_imgs {
+                    position: relative;
+                    z-index: 10;
+                    left: -10px;
+                  }
+                }
+
+                .right_sc {
+                  width: 79px;
+                  height: 30px;
+                  border: 1px solid #ffffff;
+                  border-radius: 20px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  &:hover {
+                    border-color: #3772ff;
+                  }
+                  img {
+                    display: block;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                  }
+                  span {
+                    font-size: 12px;
+                    font-family: PingFangSC-Regular;
+                    color: #ffffff;
+                  }
+                }
               }
-              .name {
+              .zp_img {
+                display: block;
+                width: 248px;
+                height: 248px;
+                border-radius: 20px;
+                margin: 0 auto 21px auto;
+                object-fit: cover;
+              }
+              .type_sogin {
+                padding-left: 20px;
                 font-size: 16px;
                 font-family: PingFangSC-Semibold;
                 color: #ffffff;
+                margin-bottom: 5px;
               }
-            }
-            .picture {
-              width: 100%;
-              height: 211px;
-              display: block;
-              border-radius: 24px;
-              margin-bottom: 30px;
-            }
-            .infor {
-              font-size: 20px;
-              font-family: PingFangSC-Semibold;
-              color: #ffffff;
-              margin-bottom: 21px;
-            }
-            .Price {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              .left {
+              .price {
+                padding-left: 20px;
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
+                font-family: PingFang SC;
+                font-weight: 500;
                 .key {
-                  font-size: 18px;
+                  font-size: 20px;
                   font-family: PingFang SC;
-                  font-weight: 500;
-                  color: #3772ff;
-                  margin-right: 10px;
+                  color: #19fbc5;
                 }
-                .value {
-                  font-size: 18px;
-                  font-family: PingFang SC;
-                  font-weight: 500;
-                  color: #fff;
-                }
-              }
-              .right {
-                width: 95px;
-                height: 36px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid #ffffff;
-                border-radius: 20px;
-                img {
-                  display: block;
-                  width: 18px;
-                  height: 17px;
-                  margin-right: 7px;
-                }
-                .nmber {
-                  font-size: 16px;
-                  font-family: PingFangSC-Regular;
+                .conmit {
+                  width: 122px;
+                  height: 52px;
+                  background: #3772ff;
+                  opacity: 1;
+                  border-radius: 0px 0px 24px 0px;
+                  font-size: 14px;
+                  font-family: OPPOSans;
                   color: #ffffff;
+                  border: none;
                 }
               }
             }
+          }
+        }
+      }
+      // 异常页
+      .abnormal {
+        margin-top:10%;
+        img {
+          display: block;
+          margin: 0 auto 23px auto;
+          width: 260px;
+          height: 200px;
+        }
+        p {
+          font-size: 14px;
+          font-family: PingFangSC-Regular;
+          line-height: 20px;
+          color: #ffffff;
+          text-align: center;
+          span {
+            color: #3772ff;
           }
         }
       }

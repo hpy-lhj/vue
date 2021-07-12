@@ -5,12 +5,12 @@
     <div class="emel">
       <div class="emel_input">
         <input v-model="emel" placeholder="请输入邮箱" />
-        <el-button type="primary" plain>Go</el-button>
+        <el-button @click="subscribe" type="primary" plain>Go</el-button>
       </div>
     </div>
     <p class="tite">语言</p>
     <div class="select_yy">
-      <el-select v-model="select_value" placeholder="请选择">
+      <el-select @change="change" v-model="select_value" placeholder="请选择">
         <el-option
           v-for="item in options"
           :key="item.value"
@@ -51,6 +51,8 @@
   </div>
 </template>
 <script>
+import { Message } from "element-ui";
+import { get, post, del } from "../http/http";
 export default {
   props: {},
   data: function () {
@@ -71,7 +73,34 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {},
+  methods: {
+    change(data) {
+      console.log(data);
+      if (data == 0) {
+        this.$i18n.locale = "zh-CN"; //切换为中文
+      } else {
+        this.$i18n.locale = "en-US"; //切换为英文
+      }
+    },
+    subscribe() {
+      var myreg =
+        /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+      if (!myreg.test(this.emel)) {
+        Message.error("请输入正确的邮箱");
+      } else {
+        let data = {
+          email: this.emel,
+        };
+        post(this.$api.apply_creator.subscribe, data)
+          .then((res) => {
+            Message.success("订阅成功");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    },
+  },
   mounted: async function () {},
 };
 </script>

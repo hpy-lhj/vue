@@ -4,14 +4,19 @@
     <div class="screen">
       <p
         :class="{
-          all_link: menu_status == -1,
+          all_link: !select_xl && !select_time && !select_price,
         }"
         class="all"
         @click="change_menu(-1)"
       >
         全部
       </p>
-      <div class="select">
+      <div
+        class="select"
+        :class="{
+          all_link: select_xl,
+        }"
+      >
         <el-select v-model="select_xl" placeholder="选择系列">
           <el-option
             v-for="item in xl_options"
@@ -22,7 +27,12 @@
           </el-option>
         </el-select>
       </div>
-      <div class="select">
+      <div
+        class="select"
+        :class="{
+          all_link: select_time,
+        }"
+      >
         <el-select v-model="select_time" placeholder="时间排序">
           <el-option
             v-for="item in time_options"
@@ -33,7 +43,12 @@
           </el-option>
         </el-select>
       </div>
-      <div class="select">
+      <div
+        class="select"
+        :class="{
+          all_link: select_price,
+        }"
+      >
         <el-select v-model="select_price" placeholder="价格排序">
           <el-option
             v-for="item in price_options"
@@ -103,6 +118,9 @@ export default {
   methods: {
     change_menu(index) {
       this.menu_status = index;
+      this.select_xl = "";
+      this.select_time = "";
+      this.select_price = "";
     },
   },
   mounted: async function () {},
@@ -136,9 +154,16 @@ export default {
       background: #404040;
       border-radius: 19px;
       border-radius: 19px;
+      &.all_link {
+        .el-input__inner {
+          background-color: #3772ff !important;
+          border: 1px solid #3772ff !important;
+        }
+      }
       .el-input__inner {
         text-align: center;
         border: 1px solid #404040 !important;
+        font-size: 16px;
         width: 118px;
         height: 36px;
         background: #404040;

@@ -1,28 +1,34 @@
 <template>
   <div>
     <!-- 个人中心下拉选 -->
-    <el-dropdown>
+    <img
+      v-if="!$loginData.Auth_Token"
+      @click="$router.push('/login')"
+      class="portrait"
+      src="../assets/false_login.png"
+      alt="头像"
+    />
+    <el-dropdown v-else>
       <img
         @click="$router.push('/personal_center')"
         class="portrait"
-        src="../assets/chuangzuotou.png"
+        :src="$loginData.userMobile"
         alt="头像"
       />
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item @click.native="$router.push('/personal_center')"
-          >元元</el-dropdown-item
-        >
+        <el-dropdown-item @click.native="$router.push('/personal_center')">{{
+          $loginData.userName
+        }}</el-dropdown-item>
         <el-dropdown-item @click.native="$router.push('/personal_center')"
           >个人中心</el-dropdown-item
         >
-        <el-dropdown-item @click.native="$router.push('/login')"
-          >退出登录</el-dropdown-item
-        >
+        <el-dropdown-item @click.native="sign_out">退出登录</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
   </div>
 </template>
 <script>
+import { get, post, del } from "../http/http";
 export default {
   props: {
     news_show: Boolean,
@@ -36,8 +42,19 @@ export default {
     seeTable(item) {
       // this.
     },
+    sign_out() {
+      this.$loginData.out();
+      this.$router.push("/login");
+      del(this.$api.user_infor.auth)
+        .then((res) => {})
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
-  mounted: async function () {},
+  mounted: async function () {
+    console.log(this.$loginData);
+  },
 };
 </script>
 <style lang="scss" scoped>

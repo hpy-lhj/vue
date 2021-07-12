@@ -4,21 +4,21 @@
       <div class="box_plan">
         <!-- 侧边固定盒子 -->
         <div class="filx_box">
-          <div class="filx_box_list">
+          <div @click="counter(1)" class="filx_box_list">
             <div>
               <p class="key">盒子1</p>
               <p class="value">分享获取</p>
             </div>
             <img src="../../assets/box_se.png" alt="" />
           </div>
-          <div class="filx_box_list">
+          <div @click="counter(2)" class="filx_box_list">
             <div>
               <p class="key">盒子2</p>
               <p class="value">限量发售</p>
             </div>
             <img src="../../assets/box_lian.png" alt="" />
           </div>
-          <div class="filx_box_list">
+          <div @click="counter(3)" class="filx_box_list">
             <div>
               <p class="key">我的</p>
               <p class="value">我获得的</p>
@@ -45,7 +45,7 @@
           </div>
         </div>
         <!-- 限定盒子 -->
-        <div class="limit_box">
+        <div v-if="!box_show" class="limit_box" id="productId">
           <div class="limit_box_cont">
             <div class="limit_box_left">
               <p class="tite">限定盒子300个</p>
@@ -78,7 +78,9 @@
                   </div>
                 </div>
               </div>
-              <div   @click="$router.push('/product_details')" class="right">立即购买</div>
+              <div @click="$router.push('/product_details')" class="right">
+                立即购买
+              </div>
             </div>
             <!-- 盒子内容 -->
             <div class="content_box">
@@ -102,7 +104,7 @@
           </div>
         </div>
         <!-- 积分盒子 -->
-        <div class="limit_box limit_box_xd">
+        <div v-if="!box_show" class="limit_box limit_box_xd" id="productIds">
           <div class="limit_box_cont">
             <div class="limit_box_left">
               <p class="tite">积分满100可免费兑换盒子</p>
@@ -203,6 +205,85 @@
             </div>
           </div>
         </div>
+        <!-- 我获得的盒子 -->
+        <div v-if="box_show" class="limit_box" id="productIdss">
+          <div class="limit_box_cont">
+            <div class="limit_box_left">
+              <p class="tite">我获得的</p>
+            </div>
+          </div>
+          <div class="my_Collection">
+            <div class="list_cont">
+              <div class="list" v-for="(item, index) in 10" :key="index">
+                <div class="content">
+                  <!-- 头部 -->
+                  <div class="top_infot">
+                    <div class="item_cont">
+                      <!-- 创作者 -->
+                      <el-tooltip
+                        class="item"
+                        effect="light"
+                        placement="top-start"
+                      >
+                        <div slot="content">
+                          <p>创作者：元元</p>
+                        </div>
+                        <img
+                          class="tou_img"
+                          @click="$router.push('/personal_center?id=1')"
+                          src="../../assets/chuangzuotou.png"
+                          alt=""
+                        />
+                      </el-tooltip>
+                      <!-- 拥有者 -->
+                      <el-tooltip
+                        class="item"
+                        effect="light"
+                        placement="right-start"
+                      >
+                        <div slot="content">
+                          <p>拥有者：元元</p>
+                        </div>
+                        <img
+                          class="tou_img tou_imgs"
+                          @click="$router.push('/personal_center?id=1')"
+                          src="../../assets/tou.png"
+                          alt=""
+                        />
+                      </el-tooltip>
+                    </div>
+
+                    <div class="right_sc" @click="love_show = !love_show">
+                      <img
+                        v-if="love_show"
+                        src="../../assets/love_laby.png"
+                        alt=""
+                      />
+                      <img v-else src="../../assets/love_with.png" alt="" />
+                      <span>234</span>
+                    </div>
+                  </div>
+                  <img
+                    @click="$router.push('/product_details')"
+                    class="zp_img"
+                    src="../../assets/nftzp.png"
+                    alt=""
+                  />
+                  <p class="type_sogin">卡牌合集类型1-元宇宙</p>
+                  <p class="price">
+                    <span class="key">$100.3</span>
+                    <button
+                      @click="$router.push('/product_details')"
+                      class="conmit"
+                    >
+                      Buy now
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </template>
   </Main>
@@ -216,7 +297,9 @@ import computed from "./src/computed";
 export default {
   data() {
     return {
+      love_show:true,
       nmber: 18,
+      box_show: false,
       Illustrated_list: [
         require("../../assets/huahua.png"),
         require("../../assets/mangseng.png"),

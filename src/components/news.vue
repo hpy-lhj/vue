@@ -8,13 +8,13 @@
       <el-dropdown-menu slot="dropdown">
         <p class="news_tite">
           <span class="news_tite_left">消息盒</span>
-          <span class="news_tite_right">清空</span>
+          <span class="news_tite_right"></span>
         </p>
         <el-dropdown-item
           v-for="(item, index) in news_list"
           :key="index"
           @click.native="nav_click(item, index)"
-          >{{ item }}</el-dropdown-item
+          >{{ "[" + item.type_name + "]" + item.message }}</el-dropdown-item
         >
         <p @click="$router.push('/message_page')" class="news_bot">查看全部</p>
       </el-dropdown-menu>
@@ -22,6 +22,7 @@
   </div>
 </template>
 <script>
+import { get, post, del } from "../http/http";
 export default {
   props: {
     news_show: Boolean,
@@ -40,15 +41,35 @@ export default {
   watch: {},
   methods: {
     nav_click(item, index) {
-      this.$router.push('/message_page')
+      this.$emit("news_type", item.type);
+      this.$router.push("/message_page");
+    },
+    get_data() {
+      get(this.$api.news.overview)
+        .then((res) => {
+          this.news_list = res.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    unread_data() {
+      get(this.$api.news.unread)
+        .then((res) => {})
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
-  mounted: async function () {},
+  mounted: async function () {
+    this.get_data();
+    this.unread_data()
+  },
 };
 </script>
 <style lang="scss" scoped>
 .el-dropdown-menu {
-  padding: 0  15px !important;
+  padding: 0 15px !important;
   top: 80px !important;
 }
 .el-dropdown-menu__item {
@@ -58,7 +79,7 @@ export default {
   &:hover {
     background: #4b4b4b !important;
     border-radius: 13px !important;
-    color: #FFF !important;
+    color: #fff !important;
   }
   &:before {
     background-color: rgba(0, 0, 0, 0) !important;
@@ -99,6 +120,6 @@ export default {
   font-size: 14px;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
-  color: #FFF;
+  color: #fff;
 }
 </style>

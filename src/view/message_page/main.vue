@@ -1,5 +1,10 @@
 <template>
-  <Main keys="/nimo" :menu_show_c="false" bg_color="rgba(0,0,0,0)">
+  <Main
+    keys="/nimo"
+    @message_page="message_page"
+    :menu_show_c="false"
+    bg_color="rgba(0,0,0,0)"
+  >
     <template>
       <div :style="{ height: min_height }" class="message_page">
         <div class="edit_cont">
@@ -10,7 +15,7 @@
               }"
               class="edit_list"
               v-for="(item, index) in edit_list"
-              @click="edit_click(item, index)"
+              @click="edit_click(index)"
               :key="index"
             >
               <div v-if="index == active_index" class="active_line"></div>
@@ -18,11 +23,11 @@
                 <span class="key">
                   {{ item.name }}
                 </span>
-                <span v-if="item.nmber" class="value">
+                <!-- <span v-if="item.nmber" class="value">
                   <span class="nnmber">
                     {{ item.nmber }}
                   </span>
-                </span>
+                </span> -->
               </p>
             </div>
           </div>
@@ -30,43 +35,50 @@
           <div class="message_right">
             <!-- 回复 -->
             <div class="one_reply" v-if="active_index == 0">
-              <div class="reply" v-for="item in 2" :key="item">
+              <p v-if="comment_list.length <= 0" class="yichang">
+                暂无评论消息
+              </p>
+              <div
+                class="reply"
+                v-for="(item, index) in comment_list"
+                :key="index"
+              >
                 <div class="reply_top">
-                  <img
-                    class="left"
-                    src="../../assets/chuangzuotou.png"
-                    alt=""
-                  />
+                  <img class="left" :src="item.avatar" alt="" />
                   <div class="right">
                     <p class="top">
-                      <span class="name">Fieda</span>
+                      <span class="name">{{ item.user_name }}</span>
                       回复了你在
-                      <span class="key">《元宇宙》</span>
+                      <span class="key">{{ item.collect_name }}</span>
                       的评论
-                      <span class="time">36分钟前</span>
+                      <span class="time">{{ item.data_time }}</span>
                     </p>
                     <p class="bot">
-                      I like Yuan Yuan for a long time, and finally I found a
-                      place to buy his works. Chong
+                      {{ item.message }}
                     </p>
                   </div>
                 </div>
                 <div class="reply_bot">
                   <div class="top">
-                    <p @click="reply_show = !reply_show" class="tite">回复</p>
-                    <el-input
-                      v-if="reply_show"
-                      v-model="price_value"
-                      placeholder="请输入回复内容"
-                    ></el-input>
+                    <p @click="reply(index)" class="tite">回复</p>
+                    <div v-if="item.show" class="hf_confs">
+                      <el-input
+                        v-model="item.excoment"
+                        :class="{
+                          shuru_inont_show: item.shuru_inont_show,
+                        }"
+                        placeholder="请输入回复内容"
+                        @input="change($event)"
+                      ></el-input>
+                      <button @click="send_out(item, index)">发送</button>
+                    </div>
                   </div>
-                  <div class="reply_bot_cont">
-                    <img src="../../assets/tou.png" alt="" />
+                  <div class="reply_bot_cont" v-if="item.last_comment.message">
+                    <img :src="item.last_comment.avatar" alt="" />
                     <div class="right">
                       <p class="name">Fieda</p>
                       <p class="value">
-                        I like Yuan Yuan for a long time, and finally I found a
-                        place to buy his works. Chong
+                        {{ item.last_comment.message }}
                       </p>
                     </div>
                   </div>
@@ -77,20 +89,21 @@
 
             <!-- 收到的赞 -->
             <div class="one_reply" v-if="active_index == 1">
-              <div class="reply reply_zan" v-for="item in 2" :key="item">
+              <p v-if="thumb_list.length <= 0" class="yichang">暂无收到的赞</p>
+              <div
+                class="reply reply_zan"
+                v-for="(item, index) in thumb_list"
+                :key="index"
+              >
                 <div class="reply_top">
-                  <img
-                    class="left"
-                    src="../../assets/chuangzuotou.png"
-                    alt=""
-                  />
+                  <img class="left" :src="item.avatar" alt="" />
                   <div class="right">
                     <p class="top">
-                      <span class="name">Fieda</span>
+                      <span class="name">{{ item.user_name }}</span>
                       赞了你在
-                      <span class="key">《元宇宙》</span>
+                      <span class="key">{{ item.collect_name }}</span>
                       的评论
-                      <span class="time">36分钟前</span>
+                      <span class="time">{{ item.data_time }}</span>
                     </p>
                   </div>
                 </div>
@@ -100,7 +113,12 @@
 
             <!-- 系统通知 -->
             <div class="one_reply" v-if="active_index == 2">
-              <div class="reply reply_zan" v-for="item in 2" :key="item">
+              <p v-if="notice_list.length <= 0" class="yichang">暂无系统通知</p>
+              <div
+                class="reply reply_zan"
+                v-for="(item, index) in notice_list"
+                :key="index"
+              >
                 <div class="reply_top">
                   <img
                     class="left"
@@ -110,10 +128,10 @@
                   <div class="right">
                     <p class="top">
                       <span class="name">系统通知</span>
-                      <span class="time">36分钟前</span>
+                      <span class="time">{{ item.data_time }}</span>
                     </p>
                     <p class="bot">
-                      钱包在我们的高级用户之间发送空投。我们会不时地去更新会让…阅
+                      {{ item.message }}
                     </p>
                   </div>
                 </div>
@@ -127,50 +145,48 @@
                 <p class="tite">近期消息</p>
                 <div
                   class="list"
-                  @click="xx_index = index"
+                  @click="message_click(item, index)"
                   :class="{
                     private_active: index == xx_index,
                   }"
-                  v-for="(item, index) in 2"
+                  v-for="(item, index) in friends_list"
                   :key="index"
                 >
-                  <img src="../../assets/chuangzuotou.png" alt="" />
+                  <img :src="item.avatar" alt="" />
                   <div class="right">
                     <p class="top">
-                      <span class="key">系统通知</span>
-                      <span class="value">36分钟前</span>
+                      <span class="key">{{ item.user_name }}</span>
+                      <span class="value">{{ item.data_time }}</span>
                     </p>
-                    <p class="bot">钱包在我们的高级用户之间</p>
+                    <p class="bot">{{ item.message }}</p>
                   </div>
                 </div>
               </div>
               <div class="private_letter_right">
-                <p class="tite">系统通知</p>
+                <p class="tite">{{ sx_data.user_name }}</p>
                 <div class="cont" id="cont_txt">
                   <div class="cont_info">
-                    <p class="time">10:23</p>
-                    <div
-                      class="cont_lsit"
-                      v-for="(item, index) in cont_info_list"
-                      :key="index"
-                    >
-                      <div class="left" v-if="item.type">
-                        <img src="../../assets/chuangzuotou.png" alt="" />
-                        <p class="txt">
-                          <span class="value">
-                            {{ item.name }}
-                          </span>
-                        </p>
-                      </div>
-                      <div class="right" v-if="!item.type">
-                        <div></div>
-                        <div class="right_right">
+                    <div v-for="(item, index) in friends_list_im" :key="index">
+                      <p class="time">{{ item.data_time }}</p>
+                      <div class="cont_lsit">
+                        <div class="left" v-if="item.is_me == 0">
+                          <img :src="sx_data.avatar" alt="" />
                           <p class="txt">
                             <span class="value">
-                              {{ item.name }}
+                              {{ item.message }}
                             </span>
                           </p>
-                          <img src="../../assets/chuangzuotou.png" alt="" />
+                        </div>
+                        <div class="right" v-if="item.is_me == 1">
+                          <div></div>
+                          <div class="right_right">
+                            <p class="txt">
+                              <span class="value">
+                                {{ item.message }}
+                              </span>
+                            </p>
+                            <img src="../../assets/chuangzuotou.png" alt="" />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -264,22 +280,15 @@ export default {
     let _clientH = document.documentElement.clientHeight;
     return {
       min_height: `${_clientH}px`,
-      price_value: "",
-      reply_show: false,
       shuru_inont: "",
       shuru_inont_show: false,
-      cont_info_list: [
-        {
-          name:
-            "简介：这是玛尼令牌-黄金版。作为此代币的所有者，您贡献了Mani Grupa。每个所有者都是我们的高级合作伙伴。",
-          type: true,
-        },
-        {
-          name:
-            "简介：这是玛尼令牌-黄金版。作为此代币的所有者， 您贡献了Mani Grupa。每个所有者都是我们的高级合作伙伴。",
-          type: false,
-        },
-      ],
+      comment_list: [],
+      thumb_list: [],
+      notice_list: [],
+      friends_list: [],
+      friends_list_im: [],
+      sx_data: {},
+      roter_type: this.$route.query.type,
       xx_index: 0,
       edit_list: [
         {
@@ -317,6 +326,20 @@ export default {
     console.log("源文件：", "main/pages/buy/buy_card");
     console.log("this：", this);
     console.log("$route：", this.$route);
+    // if (this.roter_type) {
+    //   this.active_index =
+    //     this.roter_type == 1
+    //       ? 2
+    //       : this.roter_type == 2
+    //       ? 3
+    //       : this.roter_type == 3
+    //       ? 0
+    //       : this.roter_type == 4
+    //       ? 1
+    //       : 0;
+    // }
+    this.edit_click(this.active_index);
+    console.log(this.active_index);
   },
 };
 </script>

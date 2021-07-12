@@ -164,10 +164,16 @@
           background: #404040;
           border-radius: 6px;
           display: inline-block;
-          .upload{
+          .upload {
             display: flex;
             align-items: center;
             justify-content: center;
+            .upload-demo {
+              text-align: center;
+              .el-upload-list {
+                margin-bottom: 10px;
+              }
+            }
           }
           .ext_but {
             width: 97px;
@@ -231,6 +237,7 @@
             background: #404040;
             border-radius: 6px;
             border: 0;
+            color: #fff;
           }
         }
       }
