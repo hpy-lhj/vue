@@ -320,6 +320,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .reply {
+  width: 100%;
   .tite {
     font-size: 20px;
     font-family: PingFangSC-Semibold;
