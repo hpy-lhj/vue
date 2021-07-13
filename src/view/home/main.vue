@@ -243,7 +243,6 @@ export default {
       Share_shows: false,
       love_show: true,
       Share_show: false,
-      ip: "http://18.166.177.61:8080",
       user_id: "",
       img_list: [
         require("../../assets/xlimg.png"),

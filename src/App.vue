@@ -29,12 +29,6 @@ a:focus {
   font-size: 12px;
   outline: none;
 }
-body {
-  width: 100vw;
-  overflow-x: hidden;
-  background-color: #000;
-}
-
 input {
   -webkit-user-select: auto; /*webkit浏览器*/
 }

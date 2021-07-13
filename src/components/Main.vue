@@ -549,6 +549,10 @@ export default {
     background: #191919;
     box-shadow: 5px 0px 6px rgba(0, 0, 0, 0.16);
     overflow: auto !important;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     &.menu_slck {
       width: 120px !important;
       display: flex;
@@ -682,6 +686,7 @@ export default {
                 font-weight: 400;
                 color: #ffffff;
                 // width: 110px;
+                font-size: 16px;
                 text-align: left;
               }
             }
@@ -713,6 +718,7 @@ export default {
               background: #3772ff;
               border-radius: 19px;
             }
+
             .menu_away_cont {
               width: 106px;
               img {
@@ -721,6 +727,9 @@ export default {
                 width: 24px;
                 height: 24px;
                 margin-bottom: 8px;
+              }
+              p {
+                font-size: 16px;
               }
             }
           }
