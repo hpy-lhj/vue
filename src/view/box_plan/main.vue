@@ -5,6 +5,7 @@
         <!-- 侧边固定盒子 -->
         <div class="filx_box">
           <div @click="counter(1)" class="filx_box_list">
+            <!-- <div class="gs"></div> -->
             <div>
               <p class="key">盒子1</p>
               <p class="value">分享获取</p>

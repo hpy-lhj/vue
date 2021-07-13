@@ -119,6 +119,9 @@
           </div>
         </div>
       </div>
+      <p class="more" v-if="reply_list_thri.length > 3" @click="more">
+        查看更多
+      </p>
     </div>
   </div>
 </template>
@@ -140,11 +143,16 @@ export default {
       reply: "",
       one_reply: "",
       erw_reply: "",
+      reply_list_thri: [],
     };
   },
   computed: {},
   watch: {},
   methods: {
+    more() {
+      this.reply_list = this.reply_list_thri;
+      this.reply_list_thri = [];
+    },
     // 获取评论列表
     comment_data(id) {
       let data = {
@@ -160,6 +168,8 @@ export default {
                 this.reply_list[i].comment_time
               );
             }
+            this.reply_list_thri = this.reply_list;
+            this.reply_list = this.reply_list.slice(0, 3);
           } else {
             this.reply_list_rj = res.data.list;
             for (var i = 0; i < this.reply_list_rj.length; i++) {
@@ -496,6 +506,19 @@ export default {
           }
         }
       }
+    }
+    .more {
+      width: 114px;
+      height: 42px;
+      border: 1px solid #ffffff;
+      border-radius: 22px;
+      font-size: 16px;
+      font-family: PingFangSC-Regular;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 80px 0 50px 0;
     }
   }
 }

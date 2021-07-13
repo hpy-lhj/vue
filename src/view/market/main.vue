@@ -6,10 +6,11 @@
           <div class="Collection_cont_for">
             <div class="tite">
               <span class="left">市场</span>
-              <div class="right">
-                <input type="text" placeholder="输入你想要搜索的" />
-                <img src="../../assets/search.png" alt="" />
-              </div>
+              <!-- <div class="right"> -->
+                <Search></Search>
+                <!-- <input type="text" placeholder="输入你想要搜索的" />
+                <img src="../../assets/search.png" alt="" /> -->
+              <!-- </div> -->
             </div>
             <Menu
               @active_click="active_click"
@@ -120,6 +121,7 @@ import watch from "./src/watch";
 import methods from "./src/methods";
 import computed from "./src/computed";
 import Menu from "./src/components/Menu";
+import Search from "../../components/search";
 export default {
   data() {
     let _clientH = document.documentElement.clientHeight;
@@ -144,6 +146,7 @@ export default {
     Main,
     Menu,
     Purchasevue,
+    Search
   },
   mounted: async function () {
     console.log("源文件：", "main/pages/buy/buy_card");

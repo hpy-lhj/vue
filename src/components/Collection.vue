@@ -15,10 +15,11 @@
             <div class="Collection_cont_for">
               <div class="tite">
                 <span class="left">我的藏品</span>
-                <div class="right">
+                <Search></Search>
+                <!-- <div class="right">
                   <input type="text" placeholder="输入你想要搜索的" />
                   <img src="../assets/search.png" alt="" />
-                </div>
+                </div> -->
               </div>
               <Menu
                 @active_click="active_click"
@@ -128,6 +129,7 @@
 import { get, post, del } from "../http/http";
 import Menu from "../view/market/src/components/Menu.vue";
 import Purchasevue from "./Purchasevue";
+import Search from "./search";
 export default {
   props: {
     dialogVisible: Boolean,
@@ -157,6 +159,7 @@ export default {
   components: {
     Menu,
     Purchasevue,
+    Search,
   },
   watch: {
     dialogVisible(newV, oldV) {
