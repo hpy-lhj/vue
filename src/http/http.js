@@ -135,7 +135,7 @@ axios.interceptors.response.use(
                 // 在登录成功后返回当前页面，这一步需要在登录页操作。
                 case 401:
                     console.log(401)
-                    Message.error("登录失效");
+                    Message.error("请登录");
                     login_data.out();
                     router.replace({
                         path: '/login',
@@ -146,7 +146,7 @@ axios.interceptors.response.use(
                 // 清除本地token和清空vuex中token对象
                 // 跳转登录页面
                 case 403:
-                    Message.error("登录过期,请重新登录");
+                    Message.error("token失效,请重新登录");
                     router.replace({
                         path: '/login',
                     })

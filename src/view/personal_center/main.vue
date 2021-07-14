@@ -1,7 +1,7 @@
 <template>
   <Main keys="/nimo" :menu_show_c="false" bg_color="rgba(0,0,0,0)">
     <template>
-      <div class="personal_center" :style="{ height: min_height }">
+      <div class="personal_center">
         <div class="top_img">
           <!-- <div class="ext_bg" v-if="!pcener_id">
             <p class="key">替换横幅图像</p>
@@ -224,7 +224,7 @@
             <div class="abnormal" v-if="works_list.length <= 0">
               <img src="../../assets/undraw.png" alt="" />
               <p @click="$router.push('/market')" class="text">
-                暂无NFT，去<span>市场</span>逛逛>
+                暂无NFT，去 <span>市场</span> 逛逛>
               </p>
             </div>
           </div>

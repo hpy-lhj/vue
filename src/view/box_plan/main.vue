@@ -5,7 +5,7 @@
         <!-- 侧边固定盒子 -->
         <div class="filx_box">
           <div @click="counter(1)" class="filx_box_list">
-            <!-- <div class="gs"></div> -->
+            <div v-if="active==1" class="gs"></div>
             <div>
               <p class="key">盒子1</p>
               <p class="value">分享获取</p>
@@ -13,6 +13,7 @@
             <img src="../../assets/box_se.png" alt="" />
           </div>
           <div @click="counter(2)" class="filx_box_list">
+             <div v-if="active==2" class="gs"></div>
             <div>
               <p class="key">盒子2</p>
               <p class="value">限量发售</p>
@@ -20,6 +21,7 @@
             <img src="../../assets/box_lian.png" alt="" />
           </div>
           <div @click="counter(3)" class="filx_box_list">
+             <div v-if="active==3" class="gs"></div>
             <div>
               <p class="key">我的</p>
               <p class="value">我获得的</p>
@@ -298,6 +300,7 @@ import computed from "./src/computed";
 export default {
   data() {
     return {
+      active:99,
       love_show:true,
       nmber: 18,
       box_show: false,

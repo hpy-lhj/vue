@@ -8,6 +8,7 @@ ps: https://cn.vuejs.org/v2/api/#methods
 import { get, post } from '../../../http/http'
 export default {
     counter(nmber) {
+        this.active = nmber
         this.box_show = nmber == 3 ? true : false
         let id = nmber == 1 ? "#productId" : nmber == 2 ? "#productIds" : "#productIdss"
         const returnEle = document.querySelector(id);  //productId是将要跳转区域的id

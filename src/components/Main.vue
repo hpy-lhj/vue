@@ -1,5 +1,6 @@
 <template>
   <div
+    id="banner"
     class="main"
     :class="{
       main_menu: muen_show,
@@ -433,6 +434,31 @@ export default {
     this.keys_watch();
     this.keys_watchs();
     this.muen_show = JSON.parse(sessionStorage.getItem("testKey"));
+    var body = document.getElementsByTagName("body")[0];
+    body.style.overflow = "auto";
+    var banner = document.getElementById("banner"); // 获取滚动停止位置的元素
+    console.log(banner);
+    var bannerHeight = banner.offsetHeight; // 获取滚动停止位置的元素据top的高度
+    var header = document.querySelector(".Navigation"); // 获取头部
+    // 给window注册事件
+    window.onscroll = function () {
+      // 获取当前滚动的高度
+      var scrollTop = document.documentElement.scrollTop;
+      console.log(scrollTop);
+      console.log(bannerHeight)
+      //计算当前透明度
+      var opacity = (scrollTop * 10) / bannerHeight;
+      if (opacity >= 0.85) {
+        opacity = 1;
+      }
+      if (opacity <= 0.25) {
+        opacity = 0.25;
+      }
+      console.log(opacity);
+      // 写入样式
+      header.style.background =
+        opacity < 0.8 ? "rgba(54,54,54, " + opacity + ")" : "#191919";
+    };
   },
 };
 </script>

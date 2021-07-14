@@ -232,7 +232,7 @@ import computed from "./src/computed";
 import Reply from "./src/components/reply";
 import Share from "./src/components/Share";
 import { slider, slideritem } from "vue-concise-slider";
-import Web3 from "../../libs/getWeb3";
+// import Web3 from "../../libs/getWeb3";
 import Purchasevue from "./src/components/Purchasevue";
 export default {
   name: "HelloWorld",

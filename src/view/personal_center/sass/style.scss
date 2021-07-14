@@ -1,6 +1,5 @@
 .personal_center {
     background-color: #000000;
-    overflow: auto;
     padding-bottom: 100px;
     .top_img {
         width: 100%;
@@ -332,6 +331,7 @@
                     color: #ffffff;
                     text-align: center;
                     span {
+                        font-size: 14px;
                         color: #3772ff;
                     }
                 }
